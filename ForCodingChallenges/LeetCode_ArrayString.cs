@@ -27,5 +27,48 @@ namespace ForCodingChallenges
             });
         }
 
-    }
+        // 88. Merge Sorted Array
+        // https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150
+        //[1,2,3,0,0,0]
+        //[1]
+        //[0]
+        public static void MergeSortedArray(int[] nums1, int m, int[] nums2, int n)
+            {
+                List<int> tmp = new List<int>();
+                for (int a = 0; a < m; a++)
+                {
+                    tmp.Add(nums1[a]);
+                }
+                for (int b = 0; b < n; b++)
+                {
+                    tmp.Add(nums2[b]);
+                }
+                tmp.Sort();
+                //List<int> SortedList = tmp.Order().ToList();
+                for (int i = 0; i < nums1.Length; i++)
+                {
+                    nums1[i] = tmp[i];
+
+                }
+            }
+   
+
+    // 27. Remove Element
+    // https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+    public static int RemoveElement(int[] nums, int val)
+        {
+            int result = 0;
+            foreach (var item in nums)
+            {
+                if (item != val)
+                {
+                    nums[result] = item;
+                    result++;
+                }
+            }
+
+            return result;
+        }
+
+
 }

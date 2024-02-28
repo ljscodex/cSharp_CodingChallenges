@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ForCodingChallenges
+namespace ForCodingChallenges.LeetCode
 {
     internal class LeetCode_TwoPointers
     {
@@ -40,7 +40,7 @@ namespace ForCodingChallenges
             s = s.ToLower().Trim();
             if (s.Length == 0) { return true; }
 
-            string text = Regex.Replace(s, @"[^a-z0-9]", String.Empty);
+            string text = Regex.Replace(s, @"[^a-z0-9]", string.Empty);
 
             string cmpText = ReverseString(text);
             Console.WriteLine($"Texto: {text} / {cmpText}");
@@ -51,7 +51,7 @@ namespace ForCodingChallenges
         }
 
         // Used by IsPalindrome funct
-       private String ReverseString(string toReverse)
+        private string ReverseString(string toReverse)
         {
             char[] stringArray = toReverse.ToCharArray();
             Array.Reverse(stringArray);

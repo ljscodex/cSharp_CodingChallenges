@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForCodingChallenges
+namespace ForCodingChallenges.LeetCode
 {
     internal class LeetCode_Intervals
     {

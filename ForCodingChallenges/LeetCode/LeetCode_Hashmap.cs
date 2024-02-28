@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForCodingChallenges
+namespace ForCodingChallenges.LeetCode
 {
     internal class LeetCode_Hashmap
     {
@@ -19,8 +19,8 @@ namespace ForCodingChallenges
                 int ires = 0;
                 for (int a = 0; a < result.Length; a++)
                 {
-                    int x = Int32.Parse(result.Substring(a, 1));
-                    ires = ires + (int)(Math.Pow(x, 2));
+                    int x = int.Parse(result.Substring(a, 1));
+                    ires = ires + (int)Math.Pow(x, 2);
                 }
                 if (ires == 1)
                 {
@@ -39,28 +39,28 @@ namespace ForCodingChallenges
         }
 
         //1. Two Sum
-            public int[] TwoSum(int[] nums, int target)
+        public int[] TwoSum(int[] nums, int target)
+        {
+            int[] indexes = new int[2];
+
+            for (int a = 0; a <= nums.Length - 1; a++)
             {
-                int[] indexes = new int[2];
 
-                for (int a = 0; a <= nums.Length - 1; a++)
+                for (int b = 0; b <= nums.Length - 1; b++)
                 {
-
-                    for (int b = 0; b <= nums.Length - 1; b++)
+                    if (nums[a] + nums[b] == target && a != b)
                     {
-                        if ((nums[a] + nums[b] == target) && (a != b))
-                        {
-                            indexes[0] = a;
-                            indexes[1] = b;
-                            return indexes;
-                        }
-
+                        indexes[0] = a;
+                        indexes[1] = b;
+                        return indexes;
                     }
+
                 }
-                return indexes;
-
-
             }
+            return indexes;
+
+
+        }
 
 
     }

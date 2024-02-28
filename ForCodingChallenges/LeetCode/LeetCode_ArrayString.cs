@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForCodingChallenges
+namespace ForCodingChallenges.LeetCode
 {
     internal class LeetCode_ArrayString
     {
@@ -137,7 +137,7 @@ namespace ForCodingChallenges
         {
 
 
-            if ((nums.Length < 1) || (nums.Length > Math.Pow(10, 5)))
+            if (nums.Length < 1 || nums.Length > Math.Pow(10, 5))
             { return; }
 
             for (int rep = 0; rep < k; rep++)

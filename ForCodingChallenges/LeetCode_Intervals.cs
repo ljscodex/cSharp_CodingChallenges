@@ -43,7 +43,49 @@ namespace ForCodingChallenges
             return nArray.ToArray();
         }
 
+        // 228. Summary Ranges
 
+        public IList<string> SummaryRanges(int[] nums)
+        {
+            List<string> rtnList = new List<string>();
+            List<int> tmp = new List<int>();
+            bool bAdd = false;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                tmp.Add(nums[i]);
+
+                if (i < nums.Length - 1)
+                {
+                    if (nums[i + 1] != nums[i] + 1)
+                    {
+                        tmp.Add(nums[i]);
+                        bAdd = true;
+                    }
+                }
+                if (bAdd || i == nums.Length - 1)
+                {
+                    if (tmp.Count > 1)
+                    {
+                        if (tmp.Min() != tmp.Max())
+                        {
+                            rtnList.Add(tmp.Min() + "->" + tmp.Max());
+                        }
+                        else rtnList.Add(tmp.Min().ToString());
+
+                        tmp.Clear();
+                    }
+                    else
+                    {
+                        rtnList.Add(nums[i].ToString());
+                        tmp.Clear();
+                    }
+                    bAdd = false;
+                }
+            }
+
+            return rtnList;
+        }
 
     }
 }

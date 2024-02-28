@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace ForCodingChallenges.LeetCode
         LeetCode.Merge_Intervals([[1, 4], [1, 5]]);
 
         */
-        public static int[][] Merge_Intervals(int[][] intervals)
+        public int[][] Merge_Intervals(int[][] intervals)
         {
             var Myintervals = intervals.OrderBy(x => x[0]).ToArray().ToList();
             List<int[]> nArray = new List<int[]>();

@@ -1,12 +1,15 @@
 ﻿using ForCodingChallenges.LeetCode;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
-// Just for debug proposes
-LeetCode_Intervals.Merge_Intervals([[2, 3], [5, 5], [2, 2], [3, 4], [3, 4]]);
-LeetCode_Intervals.Merge_Intervals([[1, 4], [1, 5]]);
+    var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
+
+    LeetCode_Math lm = new LeetCode_Math();
+
+
+    lm.TrailingZeroes(9052);
+    //LeetCode_Math.TrailingZeroes(30);
 

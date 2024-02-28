@@ -33,29 +33,29 @@ namespace ForCodingChallenges
         //[1]
         //[0]
         public static void MergeSortedArray(int[] nums1, int m, int[] nums2, int n)
+        {
+            List<int> tmp = new List<int>();
+            for (int a = 0; a < m; a++)
             {
-                List<int> tmp = new List<int>();
-                for (int a = 0; a < m; a++)
-                {
-                    tmp.Add(nums1[a]);
-                }
-                for (int b = 0; b < n; b++)
-                {
-                    tmp.Add(nums2[b]);
-                }
-                tmp.Sort();
-                //List<int> SortedList = tmp.Order().ToList();
-                for (int i = 0; i < nums1.Length; i++)
-                {
-                    nums1[i] = tmp[i];
-
-                }
+                tmp.Add(nums1[a]);
             }
-   
+            for (int b = 0; b < n; b++)
+            {
+                tmp.Add(nums2[b]);
+            }
+            tmp.Sort();
+            //List<int> SortedList = tmp.Order().ToList();
+            for (int i = 0; i < nums1.Length; i++)
+            {
+                nums1[i] = tmp[i];
 
-    // 27. Remove Element
-    // https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
-    public static int RemoveElement(int[] nums, int val)
+            }
+        }
+
+
+        // 27. Remove Element
+        // https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&envId=top-interview-150
+        public static int RemoveElement(int[] nums, int val)
         {
             int result = 0;
             foreach (var item in nums)
@@ -71,4 +71,97 @@ namespace ForCodingChallenges
         }
 
 
+        // 26. Remove Duplicates from Sorted Array
+        public static int RemoveDuplicates(int[] nums)
+        {
+            int[] number;
+
+            number = nums.Distinct().ToArray();
+            Array.Sort(number);
+            for (int a = 0; a < number.Length; a++)
+            {
+                nums[a] = number[a];
+            }
+
+            return number.Length;
+        }
+
+        //80. Remove Duplicates from Sorted Array II
+        public static int RemoveDuplicates2(int[] nums)
+        {
+
+            foreach (var num in nums)
+            {
+                var x = nums.Where(val => val == num).ToArray();
+                if (x.Length > 2)
+                {
+                    int count = 0;
+                    for (int i = 0; i < nums.Length; i++)
+                    {
+                        if (nums[i] == num)
+                        {
+                            count++;
+                            if (count > 2)
+                            {
+                                nums[i] = 999;
+                            }
+                        }
+                    }
+                }
+            }
+            Array.Sort(nums);
+            return nums.Where(val => val != 999).ToArray().Length;
+        }
+
+        //169. Majority Element
+        public static int MajorityElement(int[] nums)
+        {
+
+            var inums = nums.Distinct().ToArray();
+            foreach (var num in inums)
+            {
+                var x = nums.Where(val => val == num).ToArray();
+                int l = nums.Length / 2;
+                if (x.Length > l)
+                {
+                    return num;
+                }
+            }
+            return nums[0];
+
+
+        }
+
+        // 189. Rotate Array
+        public void Rotate(int[] nums, int k)
+        {
+
+
+            if ((nums.Length < 1) || (nums.Length > Math.Pow(10, 5)))
+            { return; }
+
+            for (int rep = 0; rep < k; rep++)
+            {
+                int tmp = nums[^1];
+                Array.Copy(nums, 0, nums, 1, nums.Length - 1);
+                nums[0] = tmp;
+            }
+        }
+
+        //58. Length of Last Word
+        public int LengthOfLastWord(string s)
+        {
+            var x = s.Trim().Split(" ");
+            return x[x.Length - 1].Length;
+        }
+
+
+        //28. Find the Index of the First Occurrence in a String
+        public int StrStr(string haystack, string needle)
+        {
+            return haystack.IndexOf(needle);
+        }
+
+
+    }
 }

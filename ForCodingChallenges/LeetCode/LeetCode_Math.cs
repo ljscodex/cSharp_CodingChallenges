@@ -8,6 +8,8 @@ namespace ForCodingChallenges.LeetCode
     public class LeetCode_Math
     {
         //50. Pow(x, n)
+        [Benchmark]
+        [Arguments(2,5)]
         public static double MyPow(double x, int n)
         {
             return Math.Pow(x, n);

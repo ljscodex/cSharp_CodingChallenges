@@ -39,6 +39,9 @@ larray.RomanToInt("MCMLXXXIII");
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
 //codility.TotalWords("We test coders. Give us a Try?");
 //codility.TotalWords("Forget  CVs..Save time . x x");
+string palindrome = codility.CreatePalindrome(5, 2);
+string palindrome1 = codility.CreatePalindrome(8, 3);
+string palindrome2 = codility.CreatePalindrome(3, 2);
 
 //Codility Examples 
 //var a = codility.longestPassword("test 5 a0A pass007 ?xy1");

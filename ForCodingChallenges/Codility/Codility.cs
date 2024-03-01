@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ForCodingChallenges.Generics;
+using System.Management;
 
 namespace ForCodingChallenges.Codility
 {
@@ -106,26 +107,30 @@ namespace ForCodingChallenges.Codility
             {
                 Random r = new Random();
                 var letter = r.Next(97, 122); // a-z range
-                while (Array.IndexOf(letters, (char)letter) <0 )
+                while (Array.IndexOf(letters, (char)letter) >=0 )
                 {
                     letter = r.Next(97, 122); // a-z range
                 }
                 letters[i] = (char)letter;
             }
             // We need to Create the palindromes,
-            // we can divide into ODD and EVEN words
-            if ( N % 2 == 0 ) // ODD
+            char[] palindrome = new char[N];
+            int a = 0;
+            for ( int i = 0; i < N; i++)
             {
+                
+                if ( a>= letters.Length)
+                {
+                    a = 0;
+                }
 
+                palindrome[i] = (char)letters[a];
+                palindrome[N - 1 - i] = (char)letters[a];
+
+
+                a += +1;
             }
-            else
-            {
-
-            }
-
-
-
-            return "";
+            return new string(palindrome);
         }
 
         // Return Total Words in a Sentence

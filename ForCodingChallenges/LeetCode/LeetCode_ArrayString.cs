@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -160,6 +161,102 @@ namespace ForCodingChallenges.LeetCode
         public int StrStr(string haystack, string needle)
         {
             return haystack.IndexOf(needle);
+        }
+
+
+
+        public bool IsSubsequence(string s, string t)
+        {
+            if (s.Length == 0) { return true; }
+            if (t.Length == 0) { return false; }
+
+
+            int ifirstIndex = 0;
+           for ( int i=0; i<s.Length; i++)
+            {
+                if (i == 0)
+                {
+                    if (s[i] != t[i])
+                    {
+                        t = t.Substring(ifirstIndex, t.Length - ifirstIndex);
+                    }
+                }
+                else
+                {
+                    if ((ifirstIndex >= t.IndexOf(s[i])) && (t.IndexOf(s[i]) >= 0))
+                    {
+                        t = t.Remove(t.IndexOf(s[i]), 1);
+                        return false;
+                    }
+                }
+                ifirstIndex = t.IndexOf(s[i]);
+                if (ifirstIndex < 0)
+                {
+                    return false;
+                }
+
+
+                t = t.Remove(t.IndexOf(s[i]),1);
+
+            }
+            return true;
+        }
+
+
+        // Function not working (Still in Progress, i had no time to complete :P )
+        public int RomanToInt (string s)
+        {
+
+            int fvalue = 0;
+            int value = 0;
+            Dictionary<char,int> dic = new Dictionary<char,int>();
+            dic.Add('M', 1000);
+            dic.Add('D', 500);
+            dic.Add('C', 100);
+            dic.Add('L', 50);
+            dic.Add('X', 10);
+            dic.Add('V', 5);
+            dic.Add('I', 1);
+
+
+            // "MMMCMXCIX"
+            foreach (var item in dic)
+            {
+                int indexOfKey = s.LastIndexOf(item.Key);
+                if (indexOfKey != -1)
+                {
+                    string s2 = s.Substring(0, s.Length - indexOfKey );
+                    var x = s2.Split(item.Key);
+
+                    s = s.Substring(indexOfKey + 1);
+
+                    for (int i = 0; i < x.Length ; i++)
+                    {
+                        if (x.Length == 1) { fvalue += item.Value;  }
+                        if ((x[i].Length == 0) )
+                        {
+                            fvalue += item.Value;
+                        }
+                        else
+                        {
+                            foreach (var c in x[i])
+                            {
+                                if ( i < x.Length -1)
+                                { fvalue -= dic.FirstOrDefault(x => x.Key == c).Value; }
+                            }
+
+                        }
+
+                    }
+                }
+
+            }
+
+
+            return fvalue;
+
+
+
         }
 
 

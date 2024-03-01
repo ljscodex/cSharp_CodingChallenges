@@ -8,8 +8,8 @@ namespace ForCodingChallenges.LeetCode
     public class LeetCode_Math
     {
         //50. Pow(x, n)
-       // [Benchmark]
-       // [Arguments(2,5)]
+        // [Benchmark]
+        // [Arguments(2,5)]
         public static double MyPow(double x, int n)
         {
             return Math.Pow(x, n);
@@ -24,7 +24,7 @@ namespace ForCodingChallenges.LeetCode
         }
 
         //66. Plus One
-        public static  int[] PlusOne(int[] digits)
+        public static int[] PlusOne(int[] digits)
         {
             string number = String.Join("", digits);
             BigInteger numbers = BigInteger.Parse(number) + 1;
@@ -52,11 +52,11 @@ namespace ForCodingChallenges.LeetCode
         }
 
         //172. Factorial Trailing Zeroes
-    //| Method         | n    | Mean     | Error    | StdDev   | Median   |
-    //|--------------- |----- |---------:|---------:|---------:|---------:|
-    //| TrailingZeroes | 8692 | 24.97 ms | 0.935 ms | 2.741 ms | 24.18 ms |
-      //  [Benchmark]
-     //   [Arguments(9052)]
+        //| Method         | n    | Mean     | Error    | StdDev   | Median   |
+        //|--------------- |----- |---------:|---------:|---------:|---------:|
+        //| TrailingZeroes | 8692 | 24.97 ms | 0.935 ms | 2.741 ms | 24.18 ms |
+        //  [Benchmark]
+        //   [Arguments(9052)]
         public int TrailingZeroes(int n)
         {
 
@@ -73,7 +73,6 @@ namespace ForCodingChallenges.LeetCode
 
             return tl;
         }
-
 
     }
 }

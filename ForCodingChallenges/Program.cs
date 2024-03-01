@@ -36,7 +36,9 @@ larray.RomanToInt("MCMLXXXIII");
 //larray.IsSubsequence("ab", "baab");
 //larray.IsSubsequence("abc", "acb");
 
-codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
+//codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
+//codility.TotalWords("We test coders. Give us a Try?");
+//codility.TotalWords("Forget  CVs..Save time . x x");
 
 //Codility Examples 
 //var a = codility.longestPassword("test 5 a0A pass007 ?xy1");

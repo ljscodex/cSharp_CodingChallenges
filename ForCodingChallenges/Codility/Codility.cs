@@ -101,6 +101,28 @@ namespace ForCodingChallenges.Codility
         // TODO
         public String CreatePalindrome(int N, int K)
         {
+            char[] letters = new char[K];
+            for (int i = 0; i < K; i++)
+            {
+                Random r = new Random();
+                var letter = r.Next(97, 122); // a-z range
+                while (Array.IndexOf(letters, (char)letter) <0 )
+                {
+                    letter = r.Next(97, 122); // a-z range
+                }
+                letters[i] = (char)letter;
+            }
+            // We need to Create the palindromes,
+            // we can divide into ODD and EVEN words
+            if ( N % 2 == 0 ) // ODD
+            {
+
+            }
+            else
+            {
+
+            }
+
 
 
             return "";

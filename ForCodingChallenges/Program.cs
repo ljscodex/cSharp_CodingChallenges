@@ -5,7 +5,6 @@ using BenchmarkDotNet.Running;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using ForCodingChallenges.Codility;
 using ForCodingChallenges.BenchmarkGeneric;
-using ForCodingChallenges.LeetCode;
 
 var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 
@@ -17,8 +16,10 @@ var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 // Benchmark examples
     BenchMark_Generic bg = new BenchMark_Generic();
 
-    bg.TernaryUse();
-    bg.NoTernaryUse();
+//    bg.TernaryUse();
+//    bg.NoTernaryUse();
+
+
 //LeetCode Examples
 //lm.TrailingZeroes(9052);
 /*
@@ -50,6 +51,15 @@ bool result = larray.ContainsDuplicate([1, 2, 3, 1]);
 result = larray.ContainsDuplicate([1, 2, 3, 4]);
 result = larray.ContainsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2]);
 */
+
+
+/*bool result = larray.ContainsNearbyDuplicate([1, 2, 3, 1],  3);
+result = larray.ContainsNearbyDuplicate([1, 0, 1, 1], 1);
+result = larray.ContainsNearbyDuplicate([1, 2, 3, 1, 2, 3], 1);
+*/
+
+char[] s =  {'h', 'e', 'l', 'l', 'o' ,};
+larray.ReverseString(s);
 
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
 //codility.TotalWords("We test coders. Give us a Try?");

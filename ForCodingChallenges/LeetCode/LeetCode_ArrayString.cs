@@ -187,6 +187,28 @@ namespace ForCodingChallenges.LeetCode
             return false;
         }
 
+        //219. Contains Duplicate II
+        public bool ContainsNearbyDuplicate(int[] nums, int k)
+        {
+            for( int i=0; i<nums.Length; i++)
+            {
+                for ( int j=i+1; j<nums.Length; j++)
+                {
+                    if ((nums[i] == nums[j]) && (Math.Abs(i-j) <= k))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        //344. Reverse String
+        public void ReverseString(char[] s)
+        {
+            Array.Reverse(s);
+        }
+
 
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.
@@ -236,7 +258,6 @@ namespace ForCodingChallenges.LeetCode
         {
 
             int fvalue = 0;
-            int value = 0;
             Dictionary<char, int> dic = new Dictionary<char, int>();
             dic.Add('M', 1000);
             dic.Add('D', 500);

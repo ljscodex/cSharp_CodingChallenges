@@ -237,6 +237,21 @@ namespace ForCodingChallenges.LeetCode
             return - 1;
         }
 
+        //389. Find the Difference
+        public char FindTheDifference(string s, string t)
+        {
+            HashSet<char> hs = t.ToHashSet();
+
+            foreach (char c in hs)
+            {
+                if (s.Count(x => x == c) != t.Count( x => x == c))
+                { return c; }
+            }
+            return '\0' ;
+
+
+        }
+
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.
         public bool IsSubsequence(string s, string t)

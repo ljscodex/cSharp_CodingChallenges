@@ -224,6 +224,18 @@ namespace ForCodingChallenges.LeetCode
             return result.ToArray();
         }
 
+        //387. First Unique Character in a String
+        public int FirstUniqChar(string s)
+        {
+            HashSet<char> hs = s.ToHashSet();
+           
+            foreach ( char c in hs)
+            {
+                if (s.Count(x => x == c) == 1 )
+                { return s.IndexOf(c);  }
+            }
+            return - 1;
+        }
 
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.

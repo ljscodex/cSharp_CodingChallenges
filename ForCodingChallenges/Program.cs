@@ -73,9 +73,13 @@ result = larray.ContainsNearbyDuplicate([1, 2, 3, 1, 2, 3], 1);
 //var result = larray.FindTheDifference("abcd", "abcde");
 //result = larray.FindTheDifference("", "y");
 
-var result = larray.MissingNumber([3, 0, 1]);
-result = larray.MissingNumber([0, 1]);
-result = larray.MissingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]);
+//var result = larray.MissingNumber([3, 0, 1]);
+//result = larray.MissingNumber([0, 1]);
+//result = larray.MissingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]);
+
+var result = larray.LongestCommonPrefix(["flower","flow","flight"]);
+result=  larray.LongestCommonPrefix(["dog","racecar","car"]);
+result = larray.LongestCommonPrefix(["reflower", "flow", "flight"]);
 
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
 //codility.TotalWords("We test coders. Give us a Try?");

@@ -267,6 +267,42 @@ namespace ForCodingChallenges.LeetCode
         }
 
 
+        //14. Longest Common Prefix
+
+        public string LongestCommonPrefix(string[] strs)
+        {
+            if ( strs.Length ==1 ) {  return strs[0]; } 
+
+            var s = strs.OrderBy( x=> x.Length).ToArray();
+            string final = "";
+            int counter = 0;
+            while (s[0].Length > 0)
+            {
+                var exist = strs.Count(x => s[0] != x.Substring(0, s[0].Length));
+                if (exist <= 0)
+                {
+                    var max = strs.Count(x => s[0] == x.Substring(0, s[0].Length));
+                    if (max == -1)
+                    {
+                        return "";
+                    }
+                    if (max > counter)
+                    {
+                        counter = max;
+                        final = s[0];
+                    }
+                }
+                    s[0] = s[0].Substring(0, s[0].Length - 1);
+                    if ((s[0].Length == 0) && (counter <= 1))
+                    {
+                        return "";
+                    }
+
+            }
+            if (final.Length >0) { return final; }
+            return "";
+        }
+
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.
         public bool IsSubsequence(string s, string t)

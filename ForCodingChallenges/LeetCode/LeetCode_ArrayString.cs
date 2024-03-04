@@ -174,7 +174,20 @@ namespace ForCodingChallenges.LeetCode
             return Convert.ToInt32(number.FirstOrDefault());
         }
 
-        
+
+        //217. Contains Duplicate
+        public bool ContainsDuplicate(int[] nums)
+        {
+            var result = nums.GroupBy(x => x)
+                        .Where(x => x.Count() == 1)
+                        .SelectMany(x => x);
+
+            if ( result.Count() != nums.Count())
+                return true;
+            return false;
+        }
+
+
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.
         public bool IsSubsequence(string s, string t)

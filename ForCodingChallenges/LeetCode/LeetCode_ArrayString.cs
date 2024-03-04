@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ForCodingChallenges.LeetCode
 {
     public class LeetCode_ArrayString
@@ -163,22 +164,36 @@ namespace ForCodingChallenges.LeetCode
             return haystack.IndexOf(needle);
         }
 
+        //136. Single Number
+        public int SingleNumber(int[] nums)
+        {
+            var number = nums.GroupBy(n => n)
+                        .Where(n => n.Count() == 1)
+                        .SelectMany(n => n);
 
+            return Convert.ToInt32(number.FirstOrDefault());
+        }
 
+        
+        // Todo FINISH!
+        // One Test Case is failing, i dont know if the requirement is ok.
         public bool IsSubsequence(string s, string t)
         {
             if (s.Length == 0) { return true; }
             if (t.Length == 0) { return false; }
 
+            t = new string(t.Where(c => s.Contains(c)).ToArray());
+            if ( t.Length == 0 ) { return true; }
 
             int ifirstIndex = 0;
-           for ( int i=0; i<s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 if (i == 0)
                 {
                     if (s[i] != t[i])
                     {
-                        t = t.Substring(ifirstIndex, t.Length - ifirstIndex);
+                        return false;
+                       // t = t.Substring(ifirstIndex, t.Length - ifirstIndex);
                     }
                 }
                 else
@@ -189,27 +204,27 @@ namespace ForCodingChallenges.LeetCode
                         return false;
                     }
                 }
-                ifirstIndex = t.IndexOf(s[i]);
-                if (ifirstIndex < 0)
-                {
-                    return false;
-                }
+               // ifirstIndex = t.IndexOf(s[i]);
+               // if (ifirstIndex < 0)
+               // {
+              //      return false;
+              //  }
 
 
-                t = t.Remove(t.IndexOf(s[i]),1);
-
+              //  t = t.Remove(t.IndexOf(s[i]), 1);
+               
             }
             return true;
         }
 
 
         // Function not working (Still in Progress, i had no time to complete :P )
-        public int RomanToInt (string s)
+        public int RomanToInt(string s)
         {
 
             int fvalue = 0;
             int value = 0;
-            Dictionary<char,int> dic = new Dictionary<char,int>();
+            Dictionary<char, int> dic = new Dictionary<char, int>();
             dic.Add('M', 1000);
             dic.Add('D', 500);
             dic.Add('C', 100);
@@ -225,15 +240,15 @@ namespace ForCodingChallenges.LeetCode
                 int indexOfKey = s.LastIndexOf(item.Key);
                 if (indexOfKey != -1)
                 {
-                    string s2 = s.Substring(0, s.Length - indexOfKey );
+                    string s2 = s.Substring(0, s.Length - indexOfKey);
                     var x = s2.Split(item.Key);
 
                     s = s.Substring(indexOfKey + 1);
 
-                    for (int i = 0; i < x.Length ; i++)
+                    for (int i = 0; i < x.Length; i++)
                     {
-                        if (x.Length == 1) { fvalue += item.Value;  }
-                        if ((x[i].Length == 0) )
+                        if (x.Length == 1) { fvalue += item.Value; }
+                        if ((x[i].Length == 0))
                         {
                             fvalue += item.Value;
                         }
@@ -241,7 +256,7 @@ namespace ForCodingChallenges.LeetCode
                         {
                             foreach (var c in x[i])
                             {
-                                if ( i < x.Length -1)
+                                if (i < x.Length - 1)
                                 { fvalue -= dic.FirstOrDefault(x => x.Key == c).Value; }
                             }
 
@@ -258,7 +273,6 @@ namespace ForCodingChallenges.LeetCode
 
 
         }
-
 
     }
 }

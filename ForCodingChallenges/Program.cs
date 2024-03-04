@@ -58,8 +58,11 @@ result = larray.ContainsNearbyDuplicate([1, 0, 1, 1], 1);
 result = larray.ContainsNearbyDuplicate([1, 2, 3, 1, 2, 3], 1);
 */
 
-char[] s =  {'h', 'e', 'l', 'l', 'o' ,};
-larray.ReverseString(s);
+//char[] s =  {'h', 'e', 'l', 'l', 'o' ,};
+//larray.ReverseString(s);
+
+var result = larray.Intersection([1, 2, 2, 1],  [2, 2]);
+result = larray.Intersection([4, 9, 5], [9, 4, 9, 8, 4]);
 
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
 //codility.TotalWords("We test coders. Give us a Try?");

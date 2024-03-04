@@ -209,6 +209,21 @@ namespace ForCodingChallenges.LeetCode
             Array.Reverse(s);
         }
 
+        //349. Intersection of Two Arrays
+        public int[] Intersection(int[] nums1, int[] nums2)
+        {
+            List<int> result = new List<int>(); 
+            foreach (int n in nums1)
+            {
+                if (nums2.Contains(n))
+                    if ( !result.Contains(n))    
+                        result.Add(n);
+
+            }
+
+            return result.ToArray();
+        }
+
 
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.

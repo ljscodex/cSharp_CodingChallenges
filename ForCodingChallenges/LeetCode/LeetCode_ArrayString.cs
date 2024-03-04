@@ -252,6 +252,21 @@ namespace ForCodingChallenges.LeetCode
 
         }
 
+
+        //268. Missing Number
+        public int MissingNumber(int[] nums)
+        {
+            nums.OrderBy(x => x);
+            foreach (int n in nums)
+            {
+                if ((!nums.Contains(n + 1)) && ( n +1 <= nums.Count()))
+                { return n + 1; }
+
+            }
+            return 0;
+        }
+
+
         // Todo FINISH!
         // One Test Case is failing, i dont know if the requirement is ok.
         public bool IsSubsequence(string s, string t)

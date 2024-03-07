@@ -132,7 +132,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
         //A very Big Sum
-        public static long aVeryBigSum(List<long> ar)
+        public long aVeryBigSum(List<long> ar)
         {
             long result = 0;
             foreach( var number in ar)
@@ -142,7 +142,7 @@ namespace ForCodingChallenges.HackerRank
 
 
         // Array: Left Rotation
-        public  List<int> rotLeft(List<int> a, int d)
+        public List<int> rotLeft(List<int> a, int d)
         {
             if ( d == a.Count()) { return a; }
             if ( a.Count() ==1 ) { return a; }
@@ -160,7 +160,29 @@ namespace ForCodingChallenges.HackerRank
         }
 
 
+        //Sorting: Bubble Sort
+        public static void countSwaps(List<int> a)
+        {
 
+            int counter =0;
+            for (int i = 0; i < a.Count; i++) 
+            {
+
+                for (int j = 0; j < a.Count - 1; j++) {
+                    // Swap adjacent elements if they are in decreasing order
+                    if (a[j] > a[j + 1]) {
+                        int swap = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = swap;
+                        counter+= 1;
+                    }
+                }
+                
+            }
+            Console.WriteLine( $"Array is sorted in {counter} swaps.");
+            Console.WriteLine( $"First Element: {a[0]}");
+            Console.WriteLine( $"Last Element: {a[^1]}");   
+        }
 
     }
 }

@@ -12,7 +12,7 @@ namespace ForCodingChallenges.HackerRank
         
 
         // DAY 0: Hello World
-        static void HelloWorld() 
+        public void HelloWorld() 
         {
             // Declare a variable named 'inputString' to hold our input.
             String? inputString; 
@@ -27,7 +27,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
         //Day 2: Operators
-        static void Operators()
+        public void Operators()
         {
             double meal_cost = Convert.ToDouble(Console.ReadLine());
 
@@ -43,7 +43,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
        //Solve Me First
-        static void solveMeFirst() 
+        public void solveMeFirst() 
         {
             int val1 = Convert.ToInt32(Console.ReadLine());
             int val2 = Convert.ToInt32(Console.ReadLine());
@@ -53,7 +53,7 @@ namespace ForCodingChallenges.HackerRank
 
         //Simple Array Sum
 
-        static int simpleArraySumSub(int[] ar) {
+        public int simpleArraySum(int[] ar) {
             int iSum = 0;
             for ( int a = 0 ; a < ar.Length ; a++)
             {
@@ -63,23 +63,8 @@ namespace ForCodingChallenges.HackerRank
             return iSum;
         }
 
-        static void simpleArraySum() 
-        {
-            TextWriter textWriter = new StreamWriter( AppDomain.CurrentDomain.BaseDirectory , true);
-
-            int arCount = Convert.ToInt32(Console.ReadLine());
-
-            int[] ar = Array.ConvertAll(Console.ReadLine().Split(' '), arTemp => Convert.ToInt32(arTemp));
-            int result = simpleArraySumSub(ar);
-
-            textWriter.WriteLine(result);
-            textWriter.Flush();
-            textWriter.Close();
-            }    
-
-
-           // Day 3: Intro to Conditional Statements
-        static void IntoConditionalStatements() {
+        // Day 3: Intro to Conditional Statements
+        public void IntoConditionalStatements() {
             int N = Convert.ToInt32(Console.ReadLine());
             // check event or odd
             if (N % 2 == 0)
@@ -90,18 +75,17 @@ namespace ForCodingChallenges.HackerRank
                 else if (N >= 6 && N <= 20) {
                         Console.WriteLine( "Weird"); }
                 else if (N > 20)
-                    {
-                        Console.WriteLine("Not Weird"); }
+                    {   Console.WriteLine("Not Weird"); }
             }
             else
             {
-                            Console.WriteLine( "Weird");
+                Console.WriteLine( "Weird");
 
             }
         }
 
 
-        public static string ConditionalStatements( int N)
+        public string ConditionalStatements( int N)
         {
             if ( N <= 0 || N > 100) { return "Not Weird"; }
             // check event or odd
@@ -128,7 +112,7 @@ namespace ForCodingChallenges.HackerRank
         *  2. INTEGER_ARRAY ar
         */
 
-        public static int sockMerchant(int n, List<int> ar)
+        public int sockMerchant(int n, List<int> ar)
         {
         
             int iPairs = 0;
@@ -147,21 +131,36 @@ namespace ForCodingChallenges.HackerRank
             return iPairs;
         }
 
-        public static void SalesByMatch(string[] args)
+        //A very Big Sum
+        public static long aVeryBigSum(List<long> ar)
         {
-            TextWriter textWriter = new StreamWriter( AppDomain.CurrentDomain.BaseDirectory, true);
-
-            int n = Convert.ToInt32(Console.ReadLine().Trim());
-
-            List<int> ar = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList();
-
-            int result = sockMerchant(n, ar);
-
-            textWriter.WriteLine(result);
-
-            textWriter.Flush();
-            textWriter.Close();
+            long result = 0;
+            foreach( var number in ar)
+            { result+= number;}
+            return result;
         }
+
+
+        // Array: Left Rotation
+        public  List<int> rotLeft(List<int> a, int d)
+        {
+            if ( d == a.Count()) { return a; }
+            if ( a.Count() ==1 ) { return a; }
+            
+            int[] arra  = a.ToArray();
+            
+            for ( int ir = 1; ir <= d; ir++)        
+            {
+                int tmp = arra[0];
+                Array.Copy(arra, 1, arra, 0, arra.Length - 1);
+                arra[^1] = tmp;
+
+            }
+            return arra.ToList();   
+        }
+
+
+
 
     }
 }

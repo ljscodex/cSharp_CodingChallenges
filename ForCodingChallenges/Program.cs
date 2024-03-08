@@ -91,7 +91,7 @@ result = larray.MinSubArrayLen(1000000000, [10000,10000,10000,10000,10000,10000,
 result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 
 
-HackerRank.TestHackerRank();
+//HackerRank.TestHackerRank();
 
 HackerRank_RestAPI restAPI = new HackerRank_RestAPI();
 

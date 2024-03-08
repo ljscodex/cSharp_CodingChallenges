@@ -93,6 +93,10 @@ result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 
 HackerRank.TestHackerRank();
 
+HackerRank_RestAPI restAPI = new HackerRank_RestAPI();
+
+var APIresult =  restAPI.TestAPISolution();
+
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
 //codility.TotalWords("We test coders. Give us a Try?");
 //codility.TotalWords("Forget  CVs..Save time . x x");

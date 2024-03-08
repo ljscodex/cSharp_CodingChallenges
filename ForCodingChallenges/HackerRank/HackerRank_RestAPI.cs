@@ -57,7 +57,7 @@ namespace ForCodingChallenges.HackerRank
                         {
                             if (row.Value.Count() > 1) // does it has values ?
                             {
-                                Dictionary<string, object> checkObj = JsonConvert.DeserializeObject<Dictionary<string, object>(row.Value.ToString());
+                                Dictionary<string, object> checkObj = JsonConvert.DeserializeObject<Dictionary<string, object>>(row.Value.ToString());
 
                                 // i need to go!.
                                 foreach (var info in checkObj)
@@ -74,24 +74,13 @@ namespace ForCodingChallenges.HackerRank
                     return results;
                 }
 
-            }
-
-       public  class Solution
-            {
-                public static void Main(string[] args)
+                public int TestAPISolution()
                 {
             Console.WriteLine("THIS CHALLENGE STILL IN PROGRESS!");
-                    int userId = Convert.ToInt32(Console.ReadLine().Trim());
 
-                    int locationId = Convert.ToInt32(Console.ReadLine().Trim());
-
-                    int netStart = Convert.ToInt32(Console.ReadLine().Trim());
-
-                    int netEnd = Convert.ToInt32(Console.ReadLine().Trim());
-
-                    var task = HackerRank_RestAPI.getTransactions(userId, locationId, netStart, netEnd);
-                    var result = task.Result;
+                    var task = HackerRank_RestAPI.getTransactions(2,8,5,50);
+                    return  task.Result;
                 }
-            }
+        }
 
 }

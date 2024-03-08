@@ -17,7 +17,7 @@ using System.Text.RegularExpressions;
 
 namespace ForCodingChallenges.HackerRank
 {
-    internal class HackerRank_EventManagement
+    public class HackerRank_EventManagement
     {
         // This solution works in some testcases, i had not opportunity to debug it yet.
 
@@ -90,7 +90,7 @@ namespace ForCodingChallenges.HackerRank
 
             public void Register(IPerson person)
             {
-                if ((!Canceled) && (!Registrations.Contains(person)) && (Registrations.Count() <= Capacity))
+                if (!Canceled && !Registrations.Contains(person) && Registrations.Count() < Capacity)
                 {
                     Registrations.Add(person);
                 }
@@ -98,7 +98,7 @@ namespace ForCodingChallenges.HackerRank
 
             public void Attend(IPerson person)
             {
-                if ((!Canceled) && (Registrations.Contains(person)) && (!Attendees.Contains(person)))
+                if (!Canceled && Registrations.Contains(person) && !Attendees.Contains(person))
                 {
                     Attendees.Add(person);
                 }
@@ -130,11 +130,12 @@ namespace ForCodingChallenges.HackerRank
             {
                 foreach (var tmpEvent in Events)
                 {
-                    if (tmpEvent.EventName == eventName)
+                    if (tmpEvent.EventName == eventName && !tmpEvent.Canceled )
                     {
                         if (!tmpEvent.Registrations.Contains(person))
                         {
                             tmpEvent.Registrations.Add(person);
+                            break;
                         }
                     }
                 }
@@ -143,9 +144,9 @@ namespace ForCodingChallenges.HackerRank
             {
                 foreach (var tmpEvent in Events)
                 {
-                    if (tmpEvent.EventName == eventName)
+                    if (tmpEvent.EventName == eventName && !tmpEvent.Canceled)
                     {
-                        if ((tmpEvent.Registrations.Contains(person)) && (!tmpEvent.Attendees.Contains((person))))
+                        if (tmpEvent.Registrations.Contains(person) && !tmpEvent.Attendees.Contains(person))
                         {
                             tmpEvent.Attendees.Add(person);
 
@@ -177,13 +178,10 @@ namespace ForCodingChallenges.HackerRank
                                     Regis = x.Key.Registrations.Count()
                                 })
                                 .ToList();
-                var result = gevents.GroupBy(x => x.Year)
-                            .Select(x => new { Year = x.Key, Total = x.Sum(s => s.Regis) }
-                            );
 
-                foreach (var e in result)
+                foreach(var item in gevents)
                 {
-                    l.Add(e.Year + " - " + e.Total.ToString());
+                        l.Add ($"{item.Year} - {item.Regis.ToString()}");
 
                 }
                 l.Sort();
@@ -200,16 +198,11 @@ namespace ForCodingChallenges.HackerRank
                                     })
                                     .ToList();
 
-                var result = gevents.GroupBy(x => x.Year)
-                            .Select(x => new { Year = x.Key, Total = x.Sum(s => s.Attendees) }
-                            );
-
-                foreach (var e in result)
+                foreach(var item in gevents)
                 {
-                    l.Add(e.Year + " - " + e.Total.ToString());
+                        l.Add ($"{item.Year} - {item.Attendees.ToString()}");
 
                 }
-
                 l.Sort();
                 return l;
             }
@@ -217,76 +210,71 @@ namespace ForCodingChallenges.HackerRank
         }
 
 
-
-
-
-        class Solution
+        public void TestAPISolution()
         {
-            public static void Main(string[] args)
+            Console.WriteLine("THIS CHALLENGE STILL IN PROGRESS!");
+            List<IPerson> persons = new List<IPerson>();
+            List<IEventInfo> events = new List<IEventInfo>();
+            EventManager evtM = new EventManager(events);
+
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 1; i <= n; i++)
             {
-                Console.WriteLine("THIS CHALLENGE STILL IN PROGRESS!");
-                List<IPerson> persons = new List<IPerson>();
-                List<IEventInfo> events = new List<IEventInfo>();
-                EventManager evtM = new EventManager(events);
-
-                int n = Convert.ToInt32(Console.ReadLine().Trim());
-                for (int i = 1; i <= n; i++)
-                {
-                    var a = Console.ReadLine().Trim().Split(" ");
-                    persons.Add(new Person(a[0], a[1]));
-                }
-
-                int m = Convert.ToInt32(Console.ReadLine().Trim());
-                for (int i = 1; i <= m; i++)
-                {
-                    var a = Console.ReadLine().Trim().Split(" ");
-                    events.Add(new EventInfo(a[0],
-                                //date part
-                                new DateOnly(Convert.ToInt32(a[1].Split('.')[0]), Convert.ToInt32(a[1].Split('.')[1]), Convert.ToInt32(a[1].Split('.')[2])),
-                                // capacity
-                                Convert.ToInt32(a[2]),
-                                //canceled
-                                a[3] == "1" ? true : false));
-                }
-
-                foreach (var item in events)
-                {
-                    evtM.AddEvent(item);
-                }
-
-                int p = Convert.ToInt32(Console.ReadLine().Trim());
-                for (int i = 1; i <= p; i++)
-                {
-                    var a = Console.ReadLine().Trim().Split(" ");
-                    if (a[0] == "1")
-                    {
-                        evtM.Register(events[Convert.ToInt32(a[2])].EventName, persons[Convert.ToInt32(a[1])]);
-                    }
-                    else if (a[0] == "2")
-                    {
-                        evtM.Attend(events[Convert.ToInt32(a[2])].EventName, persons[Convert.ToInt32(a[1])]);
-                    }
-                }
-                var yy = evtM.GetEventCountByYears();
-                var b = evtM.GetEventRegistrationCountByYears();
-                var c = evtM.GetEventAttendeesCountByYears();
-                Console.WriteLine("Event Count:");
-                foreach (var item in yy)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine("Registrations:");
-                foreach (var item in b)
-                {
-                    Console.WriteLine(item);
-                }
-                Console.WriteLine("Attendees:");
-                foreach (var item in c)
-                {
-                    Console.WriteLine(item);
-                }
-
+                var a = Console.ReadLine().Trim().Split(" ");
+                persons.Add(new Person(a[0], a[1]));
             }
+
+            int m = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 1; i <= m; i++)
+            {
+                var a = Console.ReadLine().Trim().Split(" ");
+                events.Add(new EventInfo(a[0],
+                            //date part
+                            new DateOnly(Convert.ToInt32(a[1].Split('.')[0]), Convert.ToInt32(a[1].Split('.')[1]), Convert.ToInt32(a[1].Split('.')[2])),
+                            // capacity
+                            Convert.ToInt32(a[2]),
+                            //canceled
+                            a[3] == "1" ? true : false));
+            }
+
+            foreach (var item in events)
+            {
+                evtM.AddEvent(item);
+            }
+
+            int p = Convert.ToInt32(Console.ReadLine().Trim());
+            for (int i = 1; i <= p; i++)
+            {
+                var a = Console.ReadLine().Trim().Split(" ");
+                if (a[0] == "1")
+                {
+                    evtM.Register(events[Convert.ToInt32(a[2])].EventName, persons[Convert.ToInt32(a[1])]);
+                }
+                else if (a[0] == "2")
+                {
+                    evtM.Attend(events[Convert.ToInt32(a[2])].EventName, persons[Convert.ToInt32(a[1])]);
+                }
+            }
+            var yy = evtM.GetEventCountByYears();
+            var b = evtM.GetEventRegistrationCountByYears();
+            var c = evtM.GetEventAttendeesCountByYears();
+            Console.WriteLine("Event Count:");
+            foreach (var item in yy)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Registrations:");
+            foreach (var item in b)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Attendees:");
+            foreach (var item in c)
+            {
+                Console.WriteLine(item);
+            }
+
         }
+      
     }
 }

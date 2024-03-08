@@ -1,3 +1,4 @@
+using BenchmarkDotNet.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,26 @@ namespace ForCodingChallenges.HackerRank
 {
     public class HackerRank
     {
-        
+        public static void TestHackerRank()
+        {
+            Console.WriteLine("Please Copy or Enter Text to test a HackerRank Challenge!");
+            string[] firstMultipleInput = Console.ReadLine().TrimEnd().Split(' ');
+
+            int n = Convert.ToInt32(firstMultipleInput[0]);
+
+            int d = Convert.ToInt32(firstMultipleInput[1]);
+
+            List<int> expenditure = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(expenditureTemp => Convert.ToInt32(expenditureTemp)).ToList();
+
+            // If you wanna check another feature, just add a new line or change the following one.
+            int result = activityNotifications(expenditure, d);
+
+            Console.WriteLine(result);
+
+        }
 
         // DAY 0: Hello World
-        public void HelloWorld() 
+        public static void HelloWorld() 
         {
             // Declare a variable named 'inputString' to hold our input.
             String? inputString; 
@@ -27,7 +44,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
         //Day 2: Operators
-        public void Operators()
+        public static void Operators()
         {
             double meal_cost = Convert.ToDouble(Console.ReadLine());
 
@@ -43,7 +60,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
        //Solve Me First
-        public void solveMeFirst() 
+        public static void solveMeFirst() 
         {
             int val1 = Convert.ToInt32(Console.ReadLine());
             int val2 = Convert.ToInt32(Console.ReadLine());
@@ -53,7 +70,7 @@ namespace ForCodingChallenges.HackerRank
 
         //Simple Array Sum
 
-        public int simpleArraySum(int[] ar) {
+        public static int simpleArraySum(int[] ar) {
             int iSum = 0;
             for ( int a = 0 ; a < ar.Length ; a++)
             {
@@ -64,7 +81,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
         // Day 3: Intro to Conditional Statements
-        public void IntoConditionalStatements() {
+        public static void IntoConditionalStatements() {
             int N = Convert.ToInt32(Console.ReadLine());
             // check event or odd
             if (N % 2 == 0)
@@ -85,7 +102,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
 
-        public string ConditionalStatements( int N)
+        public static string ConditionalStatements( int N)
         {
             if ( N <= 0 || N > 100) { return "Not Weird"; }
             // check event or odd
@@ -112,7 +129,7 @@ namespace ForCodingChallenges.HackerRank
         *  2. INTEGER_ARRAY ar
         */
 
-        public int sockMerchant(int n, List<int> ar)
+        public static int sockMerchant(int n, List<int> ar)
         {
         
             int iPairs = 0;
@@ -132,7 +149,7 @@ namespace ForCodingChallenges.HackerRank
         }
 
         //A very Big Sum
-        public long aVeryBigSum(List<long> ar)
+        public static long aVeryBigSum(List<long> ar)
         {
             long result = 0;
             foreach( var number in ar)
@@ -142,7 +159,7 @@ namespace ForCodingChallenges.HackerRank
 
 
         // Array: Left Rotation
-        public List<int> rotLeft(List<int> a, int d)
+        public static List<int> rotLeft(List<int> a, int d)
         {
             if ( d == a.Count()) { return a; }
             if ( a.Count() ==1 ) { return a; }
@@ -184,5 +201,96 @@ namespace ForCodingChallenges.HackerRank
             Console.WriteLine( $"Last Element: {a[^1]}");   
         }
 
+    //Mark and Toys
+        public static int maximumToys(List<int> prices, int k)
+        {
+            int max=0;
+            int isum=0;
+            prices.Sort();
+            for( int i=0 ; i< prices.Count; i++)
+            {
+                isum += prices[i];
+                if ( isum > k) 
+                {
+                    isum-= prices[i];
+                    break;
+                }
+            else { max = i+1; }
+
+            }
+            return max;
+        }
+
+
+         /*
+         * Complete the 'fizzBuzz' function below.
+         *
+         * The function accepts INTEGER n as parameter.
+         */
+
+        public static void fizzBuzz(int n)
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                if ((i % 3 == 0) && (i % 5 == 0))
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (i % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else { Console.WriteLine($"{i}"); }
+            }
+        }
+
+
+            public static int activityNotifications(List<int> expenditure, int d)
+        {
+            Console.WriteLine("TODO! Working ON");
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            int counter=0;
+            int i = 0;
+            HashSet<int> has = expenditure.ToHashSet();
+            foreach( int item in has )
+            {
+                var arr = has.ToList().Skip(i).Take(d);
+
+
+                if (expenditure[i+d] >= (arr.Average() * 2))
+                {
+                    counter++;
+
+                }
+                i++;
+
+            }
+          /*  for(int i =0; i< expenditure.Count -d; i++)
+            {
+    //            if ( expenditure.Count -i -d > 0)
+    //          {
+                    //int[] arr =  new int[d];
+                    //..Array.ConstrainedCopy (expenditure.ToArray(), i, arr,0, d);
+                var arr = expenditure.ToList().Skip(i).Take(d);                
+                // List<int> arr = expenditure.GetRange(i, d);
+                    //arr.Sort();
+                    if ( expenditure[i+d] >= (arr.Average() * 2) ) 
+                    {
+                        counter++;
+                    
+                    }
+
+            } */
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+            Console.WriteLine($"Execution time: {elapsedMs/1000} seconds.");
+            return counter;
+
+        }        
     }
 }

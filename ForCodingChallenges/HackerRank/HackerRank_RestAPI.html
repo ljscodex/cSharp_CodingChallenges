@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>HackerRank - REST API Instructions - </title>
+</head>
+<body>
+    Exercise 2
+
+    <div class="layout-pane__container">
+        <div class="">
+            <div id="main-splitpane-left" class="coding-question__left-pane">
+                <div class="coding-question__left-pane__wrapper">
+                    <section class="question-view__title-wrapper"><h1 class="disable-text-selection question-view__title">2. REST API: Transactions by Location and IP</h1></section><section class="question-view__instruction">
+                        <div class="candidate-rich-text disable-text-selection">
+                            <div id="6g5j8kglqq8-instruction">
+                                <style type="text/css">
+                                    .ps-content-wrapper-v0 div {
+                                        margin: 0 auto;
+                                        overflow: auto;
+                                    }
+
+                                        .ps-content-wrapper-v0 div.preheader {
+                                            display: none;
+                                        }
+
+                                    .ps-content-wrapper-v0 p {
+                                        white-space: pre-wrap;
+                                        padding-left: 4px;
+                                        padding-right: 4px;
+                                        padding-top: 0px;
+                                        padding-bottom: 2px;
+                                    }
+
+                                        .ps-content-wrapper-v0 p.section-title {
+                                            font-weight: bold;
+                                            padding-bottom: 0px;
+                                        }
+
+                                    .ps-content-wrapper-v0 ol.plain-list, .ps-content-wrapper-v0 ul.plain-list {
+                                        list-style-type: none;
+                                        padding: 4px;
+                                    }
+
+                                    .ps-content-wrapper-v0 li {
+                                        white-space: normal;
+                                        margin-top: 4px;
+                                        margin-bottom: 4px;
+                                    }
+
+                                    .ps-content-wrapper-v0 code {
+                                        color: black;
+                                    }
+
+                                    .ps-content-wrapper-v0 pre {
+                                        background-color: #f4faff;
+                                        border: 0;
+                                        border-radius: 2px;
+                                        margin: 8px;
+                                        padding: 10px;
+                                    }
+
+                                        .ps-content-wrapper-v0 pre.scrollable-full-json {
+                                            overflow-x: scroll;
+                                            white-space: pre;
+                                        }
+
+                                        .ps-content-wrapper-v0 pre.scrollable-json {
+                                            height: 300px;
+                                            overflow-y: scroll;
+                                            display: inline-grid;
+                                            white-space: pre-wrap;
+                                            padding-left: 8px;
+                                            padding-right: 8px;
+                                            padding-top: 4px;
+                                            padding-bottom: 4px;
+                                        }
+
+                                    .ps-content-wrapper-v0 div.equation-parent {
+                                        width: 400px;
+                                        text-align: center;
+                                        border: 1px solid #000;
+                                        padding: 8px;
+                                    }
+
+                                        .ps-content-wrapper-v0 div.equation-parent.equation {
+                                            width: 100%;
+                                            display: inline-block;
+                                        }
+
+                                    .ps-content-wrapper-v0 figure {
+                                        background-color: transparent;
+                                        display: table;
+                                        margin-top: 8px;
+                                        margin-bottom: 8px;
+                                        text-align: center;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                    }
+
+                                    .ps-content-wrapper-v0 figcaption {
+                                        text-align: center;
+                                        display: table-caption;
+                                        caption-side: bottom;
+                                        margin-top: 4px;
+                                        margin-bottom: 4px;
+                                    }
+
+                                    .ps-content-wrapper-v0 img {
+                                        width: auto;
+                                        max-width: 100%;
+                                        height: auto;
+                                    }
+
+                                    .ps-content-wrapper-v0 details {
+                                        background-color: transparent;
+                                        padding-left: 4px;
+                                        padding-right: 4px;
+                                        padding-top: 0px;
+                                        padding-bottom: 2px;
+                                    }
+
+                                        .ps-content-wrapper-v0 details details {
+                                            padding-left: 8px;
+                                            padding-right: 8px;
+                                        }
+
+                                        .ps-content-wrapper-v0 details summary {
+                                            background-color: #39424e;
+                                            color: white;
+                                            font-weight: bold;
+                                            margin-top: 4px;
+                                            margin-bottom: 4px;
+                                            padding: 8px;
+                                        }
+
+                                        .ps-content-wrapper-v0 details details summary code {
+                                            color: black;
+                                            font-weight: bold;
+                                            padding-left: 2px;
+                                            padding-right: 2px;
+                                            padding-top: 4px;
+                                            padding-right: 4px;
+                                            margin-left: 4px;
+                                        }
+
+                                        .ps-content-wrapper-v0 details div.collapsable-details {
+                                            margin: 0 auto;
+                                            padding-left: 4px;
+                                            padding-right: 4px;
+                                            padding-top: 0px;
+                                            padding-bottom: 2px;
+                                            overflow: auto;
+                                        }
+
+                                            .ps-content-wrapper-v0 details div.collapsable-details pre {
+                                                margin-left: 4px;
+                                                margin-right: 4px;
+                                                margin-top: 4px;
+                                                margin-bottom: 4px;
+                                            }
+
+                                    .ps-content-wrapper-v0 table.normal {
+                                        border: 1px solid black;
+                                        border-collapse: collapse;
+                                        border-color: darkgray;
+                                        margin: 0 auto;
+                                        margin-top: 8px;
+                                        margin-bottom: 8px;
+                                        padding: 8px;
+                                        width: 96%;
+                                        table-layout: fixed;
+                                    }
+
+                                        .ps-content-wrapper-v0 table.normal tbody {
+                                            display: block;
+                                            overflow-x: auto;
+                                            overflow-y: hidden;
+                                        }
+
+                                            .ps-content-wrapper-v0 table.normal tbody tr:first-child th {
+                                                font-weight: bold;
+                                                white-space: normal;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.normal tbody tr th, .ps-content-wrapper-v0 table.normal tbody tr td {
+                                                font-weight: normal;
+                                                white-space: nowrap;
+                                                text-align: center;
+                                                vertical-align: middle;
+                                                border: 1px solid black;
+                                                border-color: darkgray;
+                                                padding: 8px;
+                                            }
+
+                                    .ps-content-wrapper-v0 table.database-table {
+                                        border-collapse: collapse;
+                                        border-color: darkgray;
+                                        border: 1px solid black;
+                                        width: auto;
+                                        margin-left: 4px;
+                                        margin-top: 8px;
+                                        margin-bottom: 8px;
+                                        padding: 8px;
+                                    }
+
+                                        .ps-content-wrapper-v0 table.database-table tbody {
+                                            overflow-x: auto;
+                                            overflow-y: hidden;
+                                            border: none;
+                                        }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr th, .ps-content-wrapper-v0 table.database-table tbody tr td {
+                                                font-weight: normal;
+                                                white-space: nowrap;
+                                                text-align: center;
+                                                vertical-align: middle;
+                                                border: 1px solid black;
+                                                border-color: darkgray;
+                                                padding: 8px;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr th {
+                                                font-weight: bold;
+                                                border: 1px solid black;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr:nth-child(2) td {
+                                                border: 1px solid black;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr:nth-child(n+2) td:first-child {
+                                                border-left-color: black;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr:nth-child(n+2) td:last-child {
+                                                border-right-color: black;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr:last-child td {
+                                                border-bottom-color: black;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.database-table tbody tr td.description {
+                                                text-align: left;
+                                                white-space: pre-wrap;
+                                            }
+
+                                    .ps-content-wrapper-v0 table.normal tbody tr th.description {
+                                        width: 60%;
+                                    }
+
+                                    .ps-content-wrapper-v0 table.function-params tbody tr:first-child td.headers {
+                                        border-bottom-width: 2px;
+                                    }
+
+                                    .ps-content-wrapper-v0 table.function-params tbody tr:last-child td {
+                                        border-top-width: 2px;
+                                        border-top-color: darkgray;
+                                    }
+
+                                    .ps-content-wrapper-v0 table.function-params tbody tr td.headers {
+                                        width: 25%;
+                                        font-weight: bold;
+                                        text-align: center;
+                                        border: 1px solid black;
+                                        border-right-width: 2px;
+                                        border-color: darkgray;
+                                    }
+
+                                    .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell {
+                                        width: 100%;
+                                        height: 100%;
+                                        padding: 0px;
+                                    }
+
+                                        .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table {
+                                            width: 100%;
+                                            height: 100%;
+                                            padding: 0px;
+                                            margin: 0px;
+                                            border: 0;
+                                        }
+
+                                            .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr td.code {
+                                                white-space: normal;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr th {
+                                                border-top: 0;
+                                            }
+
+                                                .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr th:first-child {
+                                                    border-left: 0;
+                                                }
+
+                                                .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr th:last-child {
+                                                    border-right: 0;
+                                                }
+
+                                            .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr:last-child td {
+                                                border-bottom: 0;
+                                                border-top-width: 1px;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr td:first-child {
+                                                border-left: 0;
+                                            }
+
+                                            .ps-content-wrapper-v0 table.function-params tbody tr td.params-table-cell table.params-table tbody tr td:last-child {
+                                                border-right: 0;
+                                            }
+
+                                    .ps-content-wrapper-v0 table.sudoku {
+                                        border-collapse: collapse;
+                                        border-color: darkgray;
+                                        margin: 0 auto;
+                                        margin-top: 8px;
+                                        margin-bottom: 8px;
+                                        padding: 8px;
+                                    }
+
+                                        .ps-content-wrapper-v0 table.sudoku colgroup, tbody {
+                                            border: 3px solid black;
+                                        }
+
+                                        .ps-content-wrapper-v0 table.sudoku td {
+                                            border: 1px solid black;
+                                            height: 25px;
+                                            width: 25px;
+                                            text-align: center;
+                                            padding: 0;
+                                        }
+
+                                    .ps-content-wrapper-v0 .left {
+                                        text-align: left;
+                                    }
+
+                                    .ps-content-wrapper-v0 .right {
+                                        text-align: right;
+                                    }
+
+                                    .ps-content-wrapper-v0 .code {
+                                        font-family: monospace;
+                                        white-space: nowrap;
+                                    }
+
+                                    .ps-content-wrapper-v0 .json-object-array ol, .ps-content-wrapper-v0 .json-object-array ol ul {
+                                        margin-top: 0px;
+                                        padding-left: 14px;
+                                    }
+
+                                    .json-object-array li {
+                                        float: left;
+                                        margin-right: 30px;
+                                        margin-left: 10px;
+                                    }
+
+                                    .json-object-array pre {
+                                        padding: 4px;
+                                        margin-left: 0px;
+                                    }
+                                </style>
+                                <div class="ps-content-wrapper-v0">
+                                    <p>In this challenge, use the <em>HTTP GET</em> method to retrieve information from a database of Card Transactions&nbsp;records for users. Query <em>https://jsonmock.hackerrank.com/api/transactions/search?userId=uid </em>where <em>uid</em>&nbsp;is the value of <em>user id&nbsp;</em>passed to the function, to find all the records that belong to the user with id <em>uid</em>. The query response is paginated and can be further accessed by appending to the query string &amp;<em>page=num</em> where <em>num</em> is the page number.</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p>The query response from the API&nbsp;is a JSON response with the following five fields:</p>
+
+                                    <ul>
+                                        <li>
+                                            <em>page</em>: the current page
+                                        </li>
+                                        <li>
+                                            <em>per_page</em>: he maximum number of results per page
+                                        </li>
+                                        <li>
+                                            <em>total</em>: the total number of records in the search result
+                                        </li>
+                                        <li>
+                                            <em>total_pages</em>: the total number of pages which must be queried to get all the results
+                                        </li>
+                                        <li>
+                                            <em>data</em>: an array of JSON objects that contains transaction records
+                                        </li>
+                                    </ul>
+
+                                    <p>&nbsp;</p>
+
+                                    <p>The data field in the response&nbsp;contains a list of&nbsp;the transaction records, with each transaction record following the below-described schema :</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <ul>
+                                        <li>
+                                            <em>id</em>: the unique ID of the record
+                                        </li>
+                                        <li>
+                                            <em>timestamp</em>: the timestamp when the record was generated (In&nbsp;UTC&nbsp;milliseconds)
+                                        </li>
+                                        <li>
+                                            <em>userId</em>: the&nbsp;user id of the user who performed the transaction
+                                        </li>
+                                        <li>
+                                            <em>userName</em>: the&nbsp; user name of the user who performed the transaction
+                                        </li>
+                                        <li>
+                                            <em>txnType</em>: the transaction type of the transaction. Allowed values are <em>debit</em> and <em>credit.</em>
+                                        </li>
+                                        <li>
+                                            <em>amount</em>: the transaction amount.&nbsp;&nbsp;Stored as a string with the currency&nbsp;structure and prefixed with the $ sign,&nbsp;e.g. "$2,273.95".
+                                        </li>
+                                        <li>
+                                            <em>location</em>: object , the location description of the transaction
+                                            <ul>
+                                                <li>
+                                                    <em>location.id</em>: The id of the location where the transaction took place
+                                                </li>
+                                                <li>
+                                                    <em>location.address</em>: The address of the location where the transaction took place
+                                                </li>
+                                                <li>
+                                                    <em>location.city</em>: The city&nbsp;where the transaction took place
+                                                </li>
+                                                <li>
+                                                    <em>location.zipCode</em>: The zip code of the location&nbsp;where the transaction took place
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <em>ip</em>: the IP address of the device which was used to perform the transaction
+                                        </li>
+                                    </ul>
+
+                                    <p>&nbsp;</p>
+
+                                    <p>Given the&nbsp;user-id <em>uid</em>, the provided location id&nbsp;<em>locationId</em>,&nbsp;the ip address range&nbsp;<em>netStart</em> to <em>netEnd</em>, find and return the sum of the <em>amount</em> in the&nbsp;records that have the&nbsp;network prefix&nbsp;in the inclusive range <em>netStart</em>&nbsp;to <em>netEnd</em>, belongs to the user <em>uid,</em>&nbsp;and has been performed in the location with the id <em>locationId</em>. Note that the search is not case-sensitive.</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p><strong>NOTE</strong> :&nbsp;<em>netStart</em>&nbsp;and <em>netEnd</em>&nbsp;refer to the first byte of the IPV4 address. So, for example, to find the IP addresses in the range&nbsp;<em>netStart</em>&nbsp;and <em>netEnd</em>, take the first part of the IP address 172.187.11.212, which is 172, and match if it is in the range&nbsp;<em>netStart</em>&nbsp;and <em>netEnd,</em> inclusive.</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p aria-level="4" class="section-title" data-a11y="p-s-t" role="heading">Function Description</p>
+
+                                    <p>Complete the function<i> </i><em>getTransactions</em> in the editor below.</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p><em>getTransactions</em> has the following parameter(s):</p>
+
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int uid</em>: the id by which record will be fetched</p>
+
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int </em><em>locationId</em>: the location id where the transaction took place</p>
+
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int </em><em>netStart</em>: the starting value (inclusive) of the network address for the device from which the transaction took place</p>
+
+                                    <p>&nbsp; &nbsp;&nbsp;<em>int </em><em>netEnd</em>: the end value (inclusive) of the network address for the device from which the transaction took place</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p aria-level="4" data-a11y="p-str" role="heading"><strong>Returns:</strong></p>
+
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;<em>int:</em>&nbsp;the sum of <em>amount</em> for all transactions that match the filter criteria, rounded to the nearest integer&nbsp;&nbsp;</p>
+
+                                    <p>&nbsp;</p>
+
+                                    <p><strong>Note:</strong> Please review the header in the code stub to see available libraries for API requests in the selected language. Required libraries can be imported in order to solve the question. Check our full list of supported libraries at <a href="https://www.hackerrank.com/environment" previewlistener="true">https://www.hackerrank.com/environment</a>.</p>
+
+                                    <p>&nbsp;</p>
+                                    <!-- <StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+                                    <details>
+                                        <summary class="section-title" data-a11y="d-s"><span aria-level="4" data-a11y="d-s-t" role="heading">Input Format For Custom Testing</span></summary>
+
+                                        <div class="collapsable-details">
+                                            <p>The first line contains an integer, <em>uid.</em></p>
+
+                                            <p>The second line contains an integer, <em>locationId.</em></p>
+
+                                            <p>The third line contains an integer, <em>netStart</em>.</p>
+
+                                            <p>The last line contains an integer, <em>netEnd</em>.</p>
+                                        </div>
+                                    </details>
+                                    <!-- </StartOfInputFormat> DO NOT REMOVE THIS LINE-->
+
+                                    <details open="open">
+                                        <summary class="section-title" data-a11y="d-s"><span aria-level="4" data-a11y="d-s-t" role="heading">Sample Case 0</span></summary>
+
+                                        <div class="collapsable-details">
+                                            <p aria-level="5" class="section-title" data-a11y="d-p-s-t" role="heading">Sample Input For Custom Testing</p>
+
+<pre>STDIN&nbsp;&nbsp;&nbsp;&nbsp;Function
+-----&nbsp;&nbsp;&nbsp;&nbsp;--------
+2&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;&nbsp;uid = 2
+8&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;&nbsp;locationId = 8
+5&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;&nbsp;netStart = 5
+50&nbsp;&nbsp;&nbsp;&nbsp;→&nbsp;&nbsp;&nbsp;netEnd = 50</pre>
+
+                                            <p aria-level="5" class="section-title" data-a11y="d-p-s-t" role="heading">Sample Output</p>
+
+<pre>8446
+</pre>
+
+                                            <p>Given&nbsp;<em>uid</em><em> = 2</em> the query is <em>https://jsonmock.hackerrank.com/api/transactions/search?userId=2</em> and the response is:</p>
+
+<pre><merlin-component id="merlin-code-summarizer" class="merlin-code-summarizer"></merlin-component><code class="language-json"> [ 
+   { id: 70,
+     userId: 2,
+     userName: 'Bob Martin',
+     timestamp: 1550214607032,
+     txnType: 'credit',
+     amount: '$2,411.06',
+     location:
+      { 
+         id: 8,
+         address: '389, Everest, Barwell Terrace',
+         city: 'Murillo',
+         zipCode: 66061 
+      },
+     ip: '13.211.252.55' 
+ }...
+]
+</code></pre>
+
+                                            <p>&nbsp;</p>
+
+                                            <p>Apply the filter for <em>netStart</em>&nbsp;and <em>netEnd</em>, <em>netStart</em> is 5 and <em>netEnd</em> is 50. The first record has an IP address 13.211.252.55. After formatting the IP address, the first byte is 13 which is in the range. Thus this record passes the first filter criterion. After applying this filter criteria for all the records with user ID 2 and location ID 8, there are 5 records. The rounded sum of the amounts in these 5 records is the integer 8446.</p>
+                                        </div>
+                                    </details>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

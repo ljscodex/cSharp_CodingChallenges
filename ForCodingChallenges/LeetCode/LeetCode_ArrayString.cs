@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -268,7 +269,6 @@ namespace ForCodingChallenges.LeetCode
 
 
         //14. Longest Common Prefix
-
         public string LongestCommonPrefix(string[] strs)
         {
             if ( strs.Length ==1 ) {  return strs[0]; } 
@@ -399,6 +399,81 @@ namespace ForCodingChallenges.LeetCode
 
 
 
+        }
+
+
+        //209. Minimum Size Subarray Sum
+        public int MinSubArrayLen(int target, int[] nums)
+        {
+            Console.WriteLine("TODO FEATURE");
+            int gcounter = 0;
+            int sum = 0;
+
+
+            var iexists = nums.Where( x => x >= target);
+
+            if ( iexists.Count() > 0)
+            {
+                return 1;
+            }
+
+            HashSet<int> hash = nums.ToHashSet();
+            
+           hash.Order().OrderDescending();
+            //Array.Sort(nums);
+            nums.OrderByDescending( x => x);
+
+            int counter=0 ;
+            int c=0;
+            foreach ( var num in hash)
+            {
+                c+=1;
+                sum= num;
+                counter= 1;
+                for ( int b = 0; b < nums.Length; b++)
+                {
+                    if ( b != c )
+                    {
+                        sum += nums[b];
+                        counter++;
+                        if (sum >= target)
+                        {
+                            if ((gcounter >= counter) || ( gcounter == 0))
+                            {  
+                                gcounter = counter;
+                            // break;
+                            }
+                        }
+                    }
+                }           
+            }
+            /*
+            
+            
+            for (int i = 0; i < nums.Length; i ++)
+            {
+
+
+                int counter = 1;
+                sum = nums[i];
+                for ( int b = i+1; b < nums.Length; b++)
+                {
+                    sum += nums[b];
+                    counter++;
+                    if (sum >= target)
+                    {
+                        if ((gcounter >= counter) || ( gcounter == 0))
+                        {  
+                            gcounter = counter;
+                            break;
+                        }
+                    }
+                }
+
+            }*/
+
+            return gcounter;
+            
         }
 
     }

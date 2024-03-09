@@ -23,20 +23,20 @@ namespace ForCodingChallenges.HackerRank
     {
         public int id { get; set; }
         public int userId { get; set; }
-        public string userName { get; set; }
-        public object timestamp { get; set; }
-        public string txnType { get; set; }
-        public string amount { get; set; }
-        public Location location { get; set; }
-        public string ip { get; set; }
+        public string? userName { get; set; }
+        public object? timestamp { get; set; }
+        public string? txnType { get; set; }
+        public string? amount { get; set; }
+        public Location? location { get; set; }
+        public string? ip { get; set; }
     }
 
     public class Location
     {
         public int id { get; set; }
-        public string address { get; set; }
-        public string city { get; set; }
-        public int zipCode { get; set; }
+        public string? address { get; set; }
+        public string? city { get; set; }
+        public int? zipCode { get; set; }
     }
 
     public class ApiDATA
@@ -45,7 +45,7 @@ namespace ForCodingChallenges.HackerRank
         public int per_page { get; set; }
         public int total { get; set; }
         public int total_pages { get; set; }
-        public List<Datum> data { get; set; }
+        public List<Datum>? data { get; set; }
     }
 
     public class HackerRank_RestAPI
@@ -73,23 +73,29 @@ namespace ForCodingChallenges.HackerRank
                         client.BaseAddress = new Uri($"https://jsonmock.hackerrank.com/api/transactions/search?userId={userId}");
                         HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
 
-
-                        string responseData = await response.Content.ReadAsStringAsync();
-                        var dData = JsonConvert.DeserializeObject<ApiDATA>(responseData);
-
-                        foreach( var item in dData.data)
+                        if (response.IsSuccessStatusCode)
                         {
-                            if( item.location.id == locationId)
+                            string responseData = await response.Content.ReadAsStringAsync();
+                            var dData = JsonConvert.DeserializeObject<ApiDATA>(responseData);
+
+                            foreach (var item in dData.data)
                             {
-                                int iRange = int.Parse(item.ip.Split('.')[0]);
-
-                                if (( iRange  >= netStart ) && ( iRange <= netEnd ))
+                                if (item.location.id == locationId)
                                 {
-                                  dSum+= Decimal.Parse( item.amount.Replace("$", string.Empty), NumberStyles.AllowThousands | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
-                                }
+                                    int iRange = int.Parse(item.ip.Split('.')[0]);
 
-                            } 
-                        } 
+                                    if ((iRange >= netStart) && (iRange <= netEnd))
+                                    {
+                                        if (item.amount is not null)
+                                        {
+                                            dSum += Decimal.Parse(item.amount.Replace("$", string.Empty), NumberStyles.AllowThousands | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture);
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
                     }
 
                     return Convert.ToInt32(dSum);

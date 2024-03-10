@@ -6,6 +6,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using ForCodingChallenges.Codility;
 using ForCodingChallenges.BenchmarkGeneric;
 using ForCodingChallenges.HackerRank;
+using Microsoft.Diagnostics.Tracing.Parsers.Clr;
 
 var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 
@@ -96,8 +97,16 @@ result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 //HackerRank_RestAPI restAPI = new HackerRank_RestAPI();
 //var APIresult =  restAPI.TestAPISolution();
 
-HackerRank_EventManagement eventManagement = new HackerRank_EventManagement();
-eventManagement.TestAPISolution();
+//HackerRank_EventManagement eventManagement = new HackerRank_EventManagement();
+//eventManagement.TestAPISolution();
+
+var result2 = HackerRank.repeatedString("cfimaakj", 554045874191);
+
+
+result2 = HackerRank.repeatedString("aba", 10);
+result2 = HackerRank.repeatedString("gfcaaaecbg", 547602);
+result2 = HackerRank.repeatedString("beeaabc", 711560125001);
+
 
 
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);
@@ -114,4 +123,5 @@ eventManagement.TestAPISolution();
 //var i = codility.MissingInteger([-1, -3]);
 Console.WriteLine("Press Any Key to Close the APP");
 Console.ReadLine();
+
 

@@ -249,7 +249,33 @@ namespace ForCodingChallenges.HackerRank
         }
 
 
-            public static int activityNotifications(List<int> expenditure, int d)
+        public static long repeatedString(string s, long n)
+        {
+            //"cfimaakj", 554045874191 == 138511468548
+            //"gfcaaaecbg", 547602 == 164280
+            //"beeaabc",711560125001 == 203302892858
+
+            if (s == "a") { return n; }
+            if (!s.Contains("a")) { return 0; }
+
+            int count = s.Where(c => c == 'a').Count();
+            long tmp = n / s.Length;
+            int newcount = 0;
+
+            decimal module = n % s.Length;
+            if (module > 0)
+            {
+                string stmp = s.Substring(0, Convert.ToInt32(module) );
+                newcount = stmp.Where(c => c == 'a').Count();
+            }
+
+            tmp = tmp * count;
+            tmp +=  newcount;
+            return tmp;
+        }
+
+
+        public static int activityNotifications(List<int> expenditure, int d)
         {
             Console.WriteLine("TODO! Working ON");
             var watch = System.Diagnostics.Stopwatch.StartNew();

@@ -248,7 +248,7 @@ namespace ForCodingChallenges.HackerRank
             }
         }
 
-
+        // RepeatedString - Preparation Kit
         public static long repeatedString(string s, long n)
         {
             //"cfimaakj", 554045874191 == 138511468548
@@ -277,40 +277,37 @@ namespace ForCodingChallenges.HackerRank
 
         public static int activityNotifications(List<int> expenditure, int d)
         {
+            // This solution works with ts3 y ts1
+            // the issue is process time.
+            //testcases 3 expected = 770
+            //testcase 2 expected = 633
+            // testcase1 expected = 926
             Console.WriteLine("TODO! Working ON");
             var watch = System.Diagnostics.Stopwatch.StartNew();
             int counter=0;
-            int i = 0;
-            HashSet<int> has = expenditure.ToHashSet();
-            foreach( int item in has )
-            {
-                var arr = has.ToList().Skip(i).Take(d);
+            bool isODD =  d % 2 ==0 ? true : false;
+            int div = d / 2;
 
+//            for ( int i =0; i< expenditure.Count() -d -1 ; i++){
+            Parallel.For(0, expenditure.Count - d - 1,  i => {
 
-                if (expenditure[i+d] >= (arr.Average() * 2))
+                var arr = expenditure.Skip(i).Take(d).ToArray();
+                Array.Sort(arr);
+                int avg = 0;
+
+                if (isODD)
+                {
+                    avg= (arr[div-1] + arr[div]) / 2;
+                }
+                else { avg = arr[div]; }
+
+                //if (expenditure[i+d] >= (float)arr.Average() * 2)
+                if (expenditure[i + d] >= avg * 2)
                 {
                     counter++;
-
                 }
-                i++;
 
-            }
-          /*  for(int i =0; i< expenditure.Count -d; i++)
-            {
-    //            if ( expenditure.Count -i -d > 0)
-    //          {
-                    //int[] arr =  new int[d];
-                    //..Array.ConstrainedCopy (expenditure.ToArray(), i, arr,0, d);
-                var arr = expenditure.ToList().Skip(i).Take(d);                
-                // List<int> arr = expenditure.GetRange(i, d);
-                    //arr.Sort();
-                    if ( expenditure[i+d] >= (arr.Average() * 2) ) 
-                    {
-                        counter++;
-                    
-                    }
-
-            } */
+            }); 
 
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;

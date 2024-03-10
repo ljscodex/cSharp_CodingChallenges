@@ -92,7 +92,7 @@ result = larray.MinSubArrayLen(1000000000, [10000,10000,10000,10000,10000,10000,
 result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 
 
-//HackerRank.TestHackerRank();
+HackerRank.TestHackerRank();
 
 //HackerRank_RestAPI restAPI = new HackerRank_RestAPI();
 //var APIresult =  restAPI.TestAPISolution();
@@ -100,13 +100,12 @@ result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 //HackerRank_EventManagement eventManagement = new HackerRank_EventManagement();
 //eventManagement.TestAPISolution();
 
+/* Finished!
 var result2 = HackerRank.repeatedString("cfimaakj", 554045874191);
-
-
 result2 = HackerRank.repeatedString("aba", 10);
 result2 = HackerRank.repeatedString("gfcaaaecbg", 547602);
 result2 = HackerRank.repeatedString("beeaabc", 711560125001);
-
+*/
 
 
 //codility.MaxsumOfSubArrays([1, 3, 6, 1, 6, 6, 9, 9]);

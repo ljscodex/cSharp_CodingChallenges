@@ -58,6 +58,59 @@ namespace ForCodingChallenges.LeetCode
             return new string(stringArray);
         }
 
+        // 392. Is Subsequence
+        public bool IsSubsequence(string s, string t)
+        {
+            if (s.Length == 0) { return true; }
+            if (t.Length == 0) { return false; }
+
+            t = new string(t.Where(c => s.Contains(c)).ToArray());
+            if ( s == t ) { return true; }
+
+            if (t.Length == 0) { return true; }
+
+            int ifirstIndex = 0;
+            char nextLetter = '\n';
+            for (int i = 0; i < s.Length; i++)
+            {
+
+                if (i == 0)
+                {
+                    if (s[i] != t[i])
+                    {
+                        t = t.Substring(ifirstIndex+1, t.Length - ifirstIndex-1);
+                    }
+                }
+               
+                else
+                {
+                    if ((ifirstIndex >= t.IndexOf(s[i])) && (t.IndexOf(s[i]) > 0))
+                    {
+                        t = t.Remove(t.IndexOf(s[i]), 1);
+                        return false;
+                    }
+                }
+                ifirstIndex = t.IndexOf(s[i]);
+
+                
+                if (ifirstIndex < 0 )
+                {
+                    return false;
+                }
+
+                if (i < (s.Length - 1)) { nextLetter = s[i + 1]; }
+                if (nextLetter == s[i])
+                {
+                    t = t.Remove(t.IndexOf(s[i]), 2);
+                }
+                else
+                {
+                    t = t.Remove(t.IndexOf(s[i]), 1);
+                }
+
+              }
+            return true;
+        }
 
 
 

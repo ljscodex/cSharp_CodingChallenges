@@ -130,13 +130,10 @@ namespace ForCodingChallenges.HackerRank
             {
                 foreach (var tmpEvent in Events)
                 {
-                    if (tmpEvent.EventName == eventName && !tmpEvent.Canceled )
+                    if (tmpEvent.EventName == eventName )
                     {
-                        if (!tmpEvent.Registrations.Contains(person))
-                        {
-                            tmpEvent.Registrations.Add(person);
-                            break;
-                        }
+                        tmpEvent.Register(person);
+                        break;
                     }
                 }
             }
@@ -144,14 +141,12 @@ namespace ForCodingChallenges.HackerRank
             {
                 foreach (var tmpEvent in Events)
                 {
-                    if (tmpEvent.EventName == eventName && !tmpEvent.Canceled)
+                    if (tmpEvent.EventName == eventName)
                     {
-                        if (tmpEvent.Registrations.Contains(person) && !tmpEvent.Attendees.Contains(person))
-                        {
-                            tmpEvent.Attendees.Add(person);
-
-                        }
+                        tmpEvent.Attend(person);
+                        break;
                     }
+
                 }
 
             }
@@ -172,10 +167,10 @@ namespace ForCodingChallenges.HackerRank
             public List<string> GetEventRegistrationCountByYears()
             {
                 List<string> l = new List<string>();
-                var gevents = Events.GroupBy(x => new { x.EventDate.Year, x.Registrations })
+                var gevents = Events.GroupBy(x => new { x.EventDate.Year })
                                 .Select(x => new {
                                     Year = x.Key.Year,
-                                    Regis = x.Key.Registrations.Count()
+                                    Regis = x.Sum( n=>  n.Registrations.Count())
                                 })
                                 .ToList();
 
@@ -191,10 +186,10 @@ namespace ForCodingChallenges.HackerRank
             {
                 List<string> l = new List<string>();
 
-                var gevents = Events.GroupBy(x => new { x.EventDate.Year, x.Attendees })
+                var gevents = Events.GroupBy(x => new { x.EventDate.Year })
                                     .Select(x => new {
                                         Year = x.Key.Year,
-                                        Attendees = x.Key.Attendees.Count()
+                                        Attendees = x.Sum(n => n.Attendees.Count())
                                     })
                                     .ToList();
 

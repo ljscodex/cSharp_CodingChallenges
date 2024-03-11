@@ -20,6 +20,12 @@ namespace TestProject
         [TestCase("b", "ahbgdc", ExpectedResult = true)]
         [TestCase("abc", "ahbgdc", ExpectedResult = true)]
         [TestCase("abc", "ahbgdc", ExpectedResult = true)]
+        [TestCase("aaaaaa", "bbaaaa", ExpectedResult = true)]
+        [TestCase("bb", "ahbgdc", ExpectedResult = true)]
+        [TestCase("abc", "", ExpectedResult = true)]
+        [TestCase("", "", ExpectedResult = true)]
+        [TestCase("abc", "acb", ExpectedResult = false)]
+
 
         public bool Test_LeetCode_TwoPointers_IsSubsequence(string s, string t)
         {

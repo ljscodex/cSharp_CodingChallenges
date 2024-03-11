@@ -83,7 +83,7 @@ result = larray.MinSubArrayLen(1000000000, [10000,10000,10000,10000,10000,10000,
 */
 //result = larray.MinSubArrayLen(80,[10,5,13,4,8,4,5,11,14,9,16,10,20,8]);
 
-/*
+
 LeetCode_TwoPointers ltwo = new LeetCode_TwoPointers();
 var reult = ltwo.IsSubsequence("abc", "ahbgdc");
 reult = ltwo.IsSubsequence("axc", "ahbgdc");
@@ -97,15 +97,17 @@ reult = ltwo.IsSubsequence("abc", "");
 reult = ltwo.IsSubsequence("", "");
 reult = ltwo.IsSubsequence("abc", "acb");
 reult = ltwo.IsSubsequence("bcd", "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuubcd");
-*/
+
 //HackerRank.TestHackerRank();
 
-
+/* Solution is working well, passed all the tests
 //HackerRank_RestAPI restAPI = new HackerRank_RestAPI();
 //var APIresult =  restAPI.TestAPISolution();
-
+*/
+/* Solution is working well pass 8/15 test cases, it seems to be error with Data on the API Side.
 HackerRank_EventManagement eventManagement = new HackerRank_EventManagement();
 eventManagement.TestAPISolution();
+*/
 
 /* Finished!
 var result2 = HackerRank.repeatedString("cfimaakj", 554045874191);

@@ -64,81 +64,38 @@ namespace ForCodingChallenges.LeetCode
             if (s.Length == 0) { return true; }
             if (t.Length == 0) { return false; }
 
+            if ( s.Length == t.Length && s != t) { return false;}
+
             t = new string(t.Where(c => s.Contains(c)).ToArray());
             if ( s == t ) { return true; }
 
-            if (t.Length == 0) 
-            {
-                return true; 
-            }
+            if (t.Length == 0) { return true; }
             else if (t.Length < s.Length)
             {
                 return false;
             }
+            HashSet<char> compares = s.ToHashSet();
 
-            for ( int i =0; i< s.Length; i++)
+            foreach( var hash in compares    )
             {
-                if (t.IndexOf(s[i]) >0)
+                while( hash != t[0] )
                 {
-                        t= t.Remove(0, t.IndexOf(s[i]));
-                        i--;
+                    t =t.Remove(0,1);
                 }
-                else if (t.IndexOf(s[i]) ==0)
+                if ( hash == t[0])
                 {
-                    while ( t.IndexOf(s[i]) ==0 )
+
+                   while( hash == t[0] )
                     {
-                        t= t.Remove(t.IndexOf(s[i]),1);
+                        t =t.Remove(0,1);
                     }
-                }   
-                else {
-                   // if ( t.Length == 0) { return true; }
-                    return false;
+
                 }
+                if ( s == t ) { return true; }
+                if ( t.Length == 0) { return false; }
 
             }
 
-            if ( t.Length >0) { return false; }
-
-          /*  int ifirstIndex = 0;
-            char nextLetter = '\n';
-            for (int i = 0; i < s.Length; i++)
-            {
-
-                if (i == 0)
-                {
-                    if (s[i] != t[i])
-                    {
-                        t = t.Substring(ifirstIndex+1, t.Length - ifirstIndex-1);
-                    }
-                }
-               
-                else
-                {
-                    if ((ifirstIndex >= t.IndexOf(s[i])) && (t.IndexOf(s[i]) > 0))
-                    {
-                        t = t.Remove(t.IndexOf(s[i]), 1);
-                        return false;
-                    }
-                }
-                ifirstIndex = t.IndexOf(s[i]);
-
-                
-                if (ifirstIndex < 0 )
-                {
-                    return false;
-                }
-
-                if (i < (s.Length - 1)) { nextLetter = s[i + 1]; }
-                if (nextLetter == s[i])
-                {
-                    t = t.Remove(t.IndexOf(s[i]), 2);
-                }
-                else
-                {
-                    t = t.Remove(t.IndexOf(s[i]), 1);
-                }
-
-              }*/
             return true;
         }
 

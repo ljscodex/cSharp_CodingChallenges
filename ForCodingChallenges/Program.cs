@@ -85,7 +85,9 @@ result = larray.MinSubArrayLen(1000000000, [10000,10000,10000,10000,10000,10000,
 
 
 LeetCode_TwoPointers ltwo = new LeetCode_TwoPointers();
-var reult = ltwo.IsSubsequence("abc", "ahbgdc");
+var reult = ltwo.IsSubsequence("b", "c");
+reult = ltwo.IsSubsequence("leet", "leeet");
+reult = ltwo.IsSubsequence("abc", "ahbgdc");
 reult = ltwo.IsSubsequence("axc", "ahbgdc");
 reult = ltwo.IsSubsequence("", "ahbgdc");
 reult = ltwo.IsSubsequence("b", "abc");

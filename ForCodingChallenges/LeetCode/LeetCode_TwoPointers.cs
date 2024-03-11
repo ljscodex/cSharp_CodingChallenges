@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ForCodingChallenges.LeetCode
 {
-    internal class LeetCode_TwoPointers
+    public class LeetCode_TwoPointers
     {
         //167. Two Sum II - Input Array Is Sorted
         public int[] TwoSum(int[] numbers, int target)

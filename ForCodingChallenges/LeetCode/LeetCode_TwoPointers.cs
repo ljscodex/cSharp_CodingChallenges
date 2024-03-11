@@ -67,9 +67,39 @@ namespace ForCodingChallenges.LeetCode
             t = new string(t.Where(c => s.Contains(c)).ToArray());
             if ( s == t ) { return true; }
 
-            if (t.Length == 0) { return true; }
+            if (t.Length == 0) 
+            {
+                return true; 
+            }
+            else if (t.Length < s.Length)
+            {
+                return false;
+            }
 
-            int ifirstIndex = 0;
+            for ( int i =0; i< s.Length; i++)
+            {
+                if (t.IndexOf(s[i]) >0)
+                {
+                        t= t.Remove(0, t.IndexOf(s[i]));
+                        i--;
+                }
+                else if (t.IndexOf(s[i]) ==0)
+                {
+                    while ( t.IndexOf(s[i]) ==0 )
+                    {
+                        t= t.Remove(t.IndexOf(s[i]),1);
+                    }
+                }   
+                else {
+                   // if ( t.Length == 0) { return true; }
+                    return false;
+                }
+
+            }
+
+            if ( t.Length >0) { return false; }
+
+          /*  int ifirstIndex = 0;
             char nextLetter = '\n';
             for (int i = 0; i < s.Length; i++)
             {
@@ -108,7 +138,7 @@ namespace ForCodingChallenges.LeetCode
                     t = t.Remove(t.IndexOf(s[i]), 1);
                 }
 
-              }
+              }*/
             return true;
         }
 

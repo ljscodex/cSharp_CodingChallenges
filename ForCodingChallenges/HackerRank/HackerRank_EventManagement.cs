@@ -207,7 +207,7 @@ namespace ForCodingChallenges.HackerRank
 
         public void TestAPISolution()
         {
-            Console.WriteLine("THIS CHALLENGE STILL IN PROGRESS!");
+            Console.WriteLine("Please copy all the entire Case to Test:");
             List<IPerson> persons = new List<IPerson>();
             List<IEventInfo> events = new List<IEventInfo>();
             EventManager evtM = new EventManager(events);

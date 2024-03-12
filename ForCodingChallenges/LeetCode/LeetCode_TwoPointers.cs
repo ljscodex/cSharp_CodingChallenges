@@ -76,16 +76,20 @@ namespace ForCodingChallenges.LeetCode
             }
             HashSet<char> compares = s.ToHashSet();
 
-            foreach( var hash in compares    )
+            if (s.Length == t.Length && s != t) { return false; }
+
+            foreach ( var hash in compares    )
             {
-                while( hash != t[0] )
-                {
-                    t =t.Remove(0,1);
-                }
+                if ( hash.ToString() == t ) { return true; }
+
+                    while (hash != t[0] && t.Length > 0)
+                    {
+                        t = t.Remove(0, 1);
+                    }
                 if ( hash == t[0])
                 {
 
-                   while( hash == t[0] )
+                   while (t.Length > 0 && hash == t[0] )
                     {
                         t =t.Remove(0,1);
                     }

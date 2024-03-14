@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.Diagnostics.Runtime.DacInterface;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -345,6 +346,29 @@ namespace ForCodingChallenges.LeetCode
             return true;
         }
 
+
+        //151. Reverse Words in a String
+        public string ReverseWords(string s)
+        {
+            var st = s.Trim().Split(" ");
+            string[] result = new string[st.Length];
+            for (int a = st.Length - 1; a >= 0; a--)
+            {
+                //if (st[a].Trim() != "")
+               // {
+                    result[st.Length - 1 - a] = st[a].Trim();
+               // }
+
+            }
+            string resultado = "";
+            foreach(var word in result)
+            {
+                resultado += word.Length > 0 ? " " + word : "";
+            }
+            //string resultado = String.Join(" ", result);
+            Console.WriteLine($"Resultado {resultado}");
+            return resultado.Trim();
+        }
 
         // Function not working (Still in Progress, i had no time to complete :P )
         // TODO FEATURE

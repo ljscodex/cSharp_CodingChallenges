@@ -23,7 +23,26 @@ var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 //    bg.NoTernaryUse();
 
 
+
+
 //LeetCode Examples
+
+/* larray.ReverseWords Working Well Test coverage 3/?
+var result = larray.ReverseWords("the sky is blue");
+result = larray.ReverseWords("  hello world  ");
+result = larray.ReverseWords("a good   example");
+*/
+
+
+
+
+
+
+
+
+
+
+
 //lm.TrailingZeroes(9052);
 /*
 larray.RomanToInt("III");

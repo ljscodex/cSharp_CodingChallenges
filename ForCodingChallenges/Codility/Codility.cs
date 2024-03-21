@@ -41,7 +41,7 @@ namespace ForCodingChallenges.Codility
             {
                 Regex rgx = new Regex("[^a-zA-Z0-9 -]");
                 words[i] = rgx.Replace(words[i], "");
-                if ((words[i].Length >= max) && (words[i].Length >= 3)) //3 because we need even letters (2+) and odd numers (1+)
+                if ((words[i].Length >= max) && (words[i].Length >= 3)) //3 because we need even letters (2+) and odd numbers (1+)
                 {
                     // lets check odd numbers or even letters
                     char[] arr = words[i].ToCharArray();

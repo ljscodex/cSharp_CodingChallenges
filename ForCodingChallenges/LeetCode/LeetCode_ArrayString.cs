@@ -322,7 +322,6 @@ namespace ForCodingChallenges.LeetCode
                     if (s[i] != t[i])
                     {
                         return false;
-                       // t = t.Substring(ifirstIndex, t.Length - ifirstIndex);
                     }
                 }
                 else
@@ -333,15 +332,6 @@ namespace ForCodingChallenges.LeetCode
                         return false;
                     }
                 }
-               // ifirstIndex = t.IndexOf(s[i]);
-               // if (ifirstIndex < 0)
-               // {
-              //      return false;
-              //  }
-
-
-              //  t = t.Remove(t.IndexOf(s[i]), 1);
-               
             }
             return true;
         }
@@ -354,10 +344,7 @@ namespace ForCodingChallenges.LeetCode
             string[] result = new string[st.Length];
             for (int a = st.Length - 1; a >= 0; a--)
             {
-                //if (st[a].Trim() != "")
-               // {
-                    result[st.Length - 1 - a] = st[a].Trim();
-               // }
+                result[st.Length - 1 - a] = st[a].Trim();
 
             }
             string resultado = "";
@@ -365,14 +352,57 @@ namespace ForCodingChallenges.LeetCode
             {
                 resultado += word.Length > 0 ? " " + word : "";
             }
-            //string resultado = String.Join(" ", result);
-            Console.WriteLine($"Resultado {resultado}");
             return resultado.Trim();
         }
 
-        // Function not working (Still in Progress, i had no time to complete :P )
-        // TODO FEATURE
-        public int RomanToInt(string s)
+
+        //53. Maximum Subarray
+        public int MaxSubArray(int[] nums)
+        {
+            int iMax= int.MinValue;
+            int iSum = 0;
+
+            if ( nums.Length == 1 ) { return nums[0]; }
+            /*for (int i = 0; i < nums.Length; i++)
+            {
+                iSum = nums[i];
+                iMax = iMax < iSum ? iSum : iMax;
+                for (int b =i+1; b < nums.Length; b++)
+                {
+                    iSum += nums[b];
+                    iMax = iMax < iSum ? iSum : iMax;
+                }
+            }*/
+            int LastIndex = 0;
+            int i = 0;
+            while( i < nums.Length )
+            {
+                iSum += nums[i];
+                iMax = iMax < iSum ? iSum : iMax;
+                i++;
+                if ( i == nums.Length - 1 ) 
+                {
+                    LastIndex++;
+                    i = LastIndex;
+                }
+            }
+
+            return iMax;
+        }
+
+
+
+
+
+
+
+
+
+
+
+    // Function not working (Still in Progress, i had no time to complete :P )
+    // TODO FEATURE
+    public int RomanToInt(string s)
         {
 
             int fvalue = 0;

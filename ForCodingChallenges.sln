@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForCodingChallenges", "ForCodingChallenges\ForCodingChallenges.csproj", "{CC32401F-EC6C-4AD3-941F-9EBA55296B37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{9DBB2270-779A-49AD-802E-200779D1C426}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForCodingChallengesTest", "TestProject\ForCodingChallengesTest.csproj", "{9DBB2270-779A-49AD-802E-200779D1C426}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

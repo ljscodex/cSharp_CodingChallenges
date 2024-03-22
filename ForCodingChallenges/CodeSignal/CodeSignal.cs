@@ -63,5 +63,32 @@ namespace ForCodingChallenges.CodeSignal
         }
 
 
+        public bool almostIncreasingSequence(int[] sequence)
+        {
+            bool justOneNumber = false;
+            List<int> lista = sequence.ToList();
+
+            for ( int a=0; a< lista.Count -1; a++)
+            {
+
+                if (lista[a] >= lista[a + 1])
+                {
+                    if (!justOneNumber) 
+                    {
+                        justOneNumber = true;
+                        if (a == 0 || lista[a-1] < lista[a+1])
+                        {
+                            lista.RemoveAt(a);
+                        }
+                        else { lista.RemoveAt(a + 1); } 
+                        a--;
+                    }
+                    else { return false; }
+                }
+
+            }
+            return true;
+        }
+
     }
 }

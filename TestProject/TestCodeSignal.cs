@@ -1,0 +1,70 @@
+using ForCodingChallenges.CodeSignal;
+
+namespace TestProject_CodeSignal
+{
+    public class TestsCodeSignal
+    {
+        private CodeSignal _codeSignal;
+
+        [SetUp]
+        public void Setup()
+        {
+            _codeSignal = new CodeSignal();
+        }
+
+
+        [TestCase(new int[] { 3, 6, -2, -5, 7, 3}, ExpectedResult =  21)]
+        [TestCase(new int[] { -1,-2}, ExpectedResult = 2)]
+        [TestCase(new int[] { 5, 1, 2, 3, 1, 4 }, ExpectedResult = 6)]
+        [TestCase(new int[] { 1, 2, 3, 0 }, ExpectedResult = 6)]
+        [TestCase(new int[] { 9, 5, 10, 2, 24, -1, -48 }, ExpectedResult = 50)]
+        [TestCase(new int[] { 5, 6, -4, 2, 3, 2, -23 }, ExpectedResult = 30)]
+        [TestCase(new int[] { 4, 1, 2, 3, 1, 5}, ExpectedResult = 6)]
+        [TestCase(new int[] { -23, 4, -3, 8, -12 }, ExpectedResult = -12)]
+        [TestCase(new int[] { 1, 0, 1, 0, 1000 }, ExpectedResult = 0)]
+                  /*
+
+         * [5, 1, 2, 3, 1, 4]6
+         * [1, 2, 3, 0]6
+         * [9, 5, 10, 2, 24, -1, -48] 50
+         * [5, 6, -4, 2, 3, 2, -23] 30
+         * [4, 1, 2, 3, 1, 5] 6
+         * [-23, 4, -3, 8, -12] -12
+         *  [1, 0, 1, 0, 1000] 0
+         *  */
+        public int TestCodeSignal_adjacentElementsProduct(int[] inputArray)
+        {
+            return _codeSignal.adjacentElementsProduct(inputArray);
+        }
+
+
+
+        // 100 19801
+        // 3 13
+        // 4 25
+        // 5 41
+        // 899 161946005
+        [TestCase(100, ExpectedResult = 19801)]
+        [TestCase(3, ExpectedResult = 13)]
+        [TestCase(4, ExpectedResult = 25)]
+        [TestCase(5, ExpectedResult = 41)]
+        [TestCase(8999, ExpectedResult = 161946005)]
+        public int TestCodeSignal_shapeArea(int n)
+        {
+            return _codeSignal.shapeArea(n);
+        }
+
+
+
+        [TestCase(new int[] { 6, 2, 3, 8 }, ExpectedResult = 3)]
+        [TestCase(new int[] {0,3 }, ExpectedResult = 2)]
+        [TestCase(new int[] { 5,4,6 }, ExpectedResult = 0)]
+        [TestCase(new int[] { 6,3 }, ExpectedResult = 2)]
+        [TestCase(new int[] { 1 }, ExpectedResult = 0)]
+        public int TestCodeSignal_MakeArrayConsecutive2(int[] intArray)
+        {
+            return _codeSignal.MakeArrayConsecutive2(intArray);
+        }
+        
+    }
+}

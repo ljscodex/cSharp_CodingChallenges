@@ -35,7 +35,8 @@ namespace ForCodingChallenges.LeetCode
         //9,223,372,036,854,775,807
         //7,285,091,295,366,732,8,4,3,7,9,5,7,7,4,7,4,9,4,7,0,1,1,1,7,4,0,0,6
 
-        //9. Palindrome Number
+        //9.
+        //Number
         public static bool IsPalindrome(int x)
         {
             char[] tmp = x.ToString().ToCharArray();

@@ -35,6 +35,9 @@ jagged[2] = [2, 1, 3, 10];
 var codeSignalResult = codesignal.matrixElementsSum(jagged);
 */
 
+var codeSignalResult = codesignal.AllLongestStrings (["aba", "aa", "ad", "vcd", "aba"]);
+
+
 
 //LeetCode Examples
 

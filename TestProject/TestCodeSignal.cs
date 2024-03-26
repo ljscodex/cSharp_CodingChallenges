@@ -161,19 +161,14 @@ namespace TestProject_CodeSignal
             yield return (jagged, 15);
         }
 
-        /* static public int[][] jaggedValues()
-         {
-             int[][] jagged = new int[3][];
 
-             jagged[0] = [1, 1, 1, 0];
-             jagged[1] = [0,5,0,1];
-             jagged[2] = [2,1,3,10];
-             return jagged;
-         }
-         [TestCaseSource(nameof(jaggedValues))]
-        */
-
-
+        [TestCase(new string[] { "aba", "aa", "ad", "vcd", "aba" }, new string[] { "aba", "vcd", "aba" })]
+        [TestCase(new string[] { "aa" }, new string[] { "aa" })]
+        [TestCase(new string[] { "abc", "eeee", "abcd", "dcd" }, new string[] { "eeee", "abcd" })]
+        public void TestCodeSignal_AllLongestStrings(string[] array, string[] result)
+        {
+            Assert.That( result, Is.EqualTo(_codeSignal.AllLongestStrings(array)));
+        }
 
 
     }

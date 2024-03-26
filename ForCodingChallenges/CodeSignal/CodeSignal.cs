@@ -103,6 +103,12 @@ namespace ForCodingChallenges.CodeSignal
             return sum;
         }
 
+        public string[] AllLongestStrings(string[] inputArray)
+        {
+            var maxlen = inputArray.OrderByDescending(x => x.Length).ToArray();
+            var result = maxlen.Where(x => x.Length == maxlen[0].Length);
+            return result.ToArray();
+        }
 
     }
 }

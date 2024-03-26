@@ -9,17 +9,6 @@ namespace ForCodingChallenges.CodeSignal
     public class CodeSignal
     {
 
-        /*
-         * [3, 6, -2, -5, 7, 3]21
-         * [-1, -2]2
-         * [5, 1, 2, 3, 1, 4]6
-         * [1, 2, 3, 0]6
-         * [9, 5, 10, 2, 24, -1, -48] 50
-         * [5, 6, -4, 2, 3, 2, -23] 30
-         * [4, 1, 2, 3, 1, 5] 6
-         * [-23, 4, -3, 8, -12] -12
-         *  [1, 0, 1, 0, 1000] 0
-         */
         public int adjacentElementsProduct (int[] inputArray)
         {
             int max = int.MinValue;
@@ -31,12 +20,6 @@ namespace ForCodingChallenges.CodeSignal
             }
             return max;
         }
-
-        // 100 19801
-        // 3 13
-        // 4 25
-        // 5 41
-        // 899 161946005
 
         public int shapeArea(int n)
         {
@@ -89,6 +72,37 @@ namespace ForCodingChallenges.CodeSignal
             }
             return true;
         }
+
+        public int matrixElementsSum(int[][] matrix)
+        {
+            int sum = 0;
+            bool bsum = true;
+
+            for ( int i = 0; i < matrix.Length; i++ )
+            {
+                for (int b = 0; b < matrix[i].Length;b++)
+                {
+                    //sum += matrix[0][b];
+                    bsum = true;
+                    for( int c=0; c< i; c++)
+                    {
+                        if (matrix[c][b] == 0)
+                        {
+                            bsum = false;
+                            break;
+                        }
+                    }
+                    if (bsum) 
+                    {
+                        sum += matrix[i][b];
+                        bsum = true;
+                    }
+                }
+            }
+
+            return sum;
+        }
+
 
     }
 }

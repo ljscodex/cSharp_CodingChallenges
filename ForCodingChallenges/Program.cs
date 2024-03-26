@@ -7,6 +7,7 @@ using ForCodingChallenges.Codility;
 using ForCodingChallenges.BenchmarkGeneric;
 using ForCodingChallenges.HackerRank;
 using Microsoft.Diagnostics.Tracing.Parsers.Clr;
+using ForCodingChallenges.CodeSignal;
 
 var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 
@@ -15,6 +16,7 @@ var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
     LeetCode_ArrayString larray = new LeetCode_ArrayString();
     LeetCode_SlidingWindow lsliding = new LeetCode_SlidingWindow();
     Codility codility = new Codility();
+    CodeSignal codesignal = new CodeSignal();
 
 // Benchmark examples
     BenchMark_Generic bg = new BenchMark_Generic();
@@ -22,7 +24,16 @@ var summary = BenchmarkRunner.Run(typeof(Program).Assembly);
 //    bg.TernaryUse();
 //    bg.NoTernaryUse();
 
+// CodeSignal.
+/* Done with TestCases
+int[][] jagged = new int[3][];
 
+jagged[0] = [1, 1, 1, 0];
+jagged[1] = [0, 5, 0, 1];
+jagged[2] = [2, 1, 3, 10];
+
+var codeSignalResult = codesignal.matrixElementsSum(jagged);
+*/
 
 
 //LeetCode Examples

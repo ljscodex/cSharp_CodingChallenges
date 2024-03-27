@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Diagnostics.Runtime.DacInterface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -109,6 +110,24 @@ namespace ForCodingChallenges.CodeSignal
             var result = maxlen.Where(x => x.Length == maxlen[0].Length);
             return result.ToArray();
         }
+
+        public int commonCharacterCount(string s1, string s2)
+        {
+            int count=0;
+
+            foreach( char letter in s1)
+            { 
+                if ( s2.Contains(letter))
+                {
+                    count++;
+                    s2= s2.Remove(s2.IndexOf(letter), 1);
+                }
+
+            }
+            return count;
+        }
+
+
 
     }
 }

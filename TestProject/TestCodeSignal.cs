@@ -171,5 +171,17 @@ namespace TestProject_CodeSignal
         }
 
 
+        [TestCase("aabcc", "adcaa", ExpectedResult = 3)]
+        [TestCase("zzzz", "zzzzzzz", ExpectedResult = 4)]
+        [TestCase("abca", "xyzbac", ExpectedResult = 3)]
+        [TestCase("a", "b", ExpectedResult = 0)]
+        [TestCase("a", "aaa", ExpectedResult = 1)]
+
+
+        public int TestCodeSignal_commonCharacterCount(string s1, string s2)
+        {
+            return _codeSignal.commonCharacterCount(s1, s2);    
+        }
+
     }
 }

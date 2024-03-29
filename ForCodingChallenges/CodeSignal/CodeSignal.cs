@@ -128,6 +128,26 @@ namespace ForCodingChallenges.CodeSignal
         }
 
 
+       public bool IsLucky(int n)
+        {
+            char[] array = n.ToString().Select(x => x).ToArray();
+
+            if ( array.Length %2 != 0)
+            { return false; }
+
+            int mid = array.Length / 2;
+            int sum1 = 0;
+            int sum2 = 0;
+            for ( int i =0; i< mid; i++)
+            {
+                sum1 += Int32.Parse(array[i].ToString());
+                sum2 += Int32.Parse(array[array.Length - i-1].ToString());
+            }
+            if ( sum1.Equals(sum2)) { return true;  }
+
+            return false;
+        }
+
 
     }
 }

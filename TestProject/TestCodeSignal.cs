@@ -183,5 +183,20 @@ namespace TestProject_CodeSignal
             return _codeSignal.commonCharacterCount(s1, s2);    
         }
 
+
+        [TestCase("1230", ExpectedResult = true)]
+        [TestCase("239017", ExpectedResult = false)]
+        [TestCase("134008", ExpectedResult = true)]
+        [TestCase("10", ExpectedResult = false)]
+        [TestCase("11", ExpectedResult = true)]
+        [TestCase("1010", ExpectedResult = true)]
+
+
+        
+        public bool TestCodeSignal_IsLucky(int n)
+        {
+            return _codeSignal.IsLucky(n);
+        }
+
     }
 }

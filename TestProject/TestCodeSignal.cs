@@ -198,5 +198,15 @@ namespace TestProject_CodeSignal
             return _codeSignal.IsLucky(n);
         }
 
+
+        [TestCase(new int[] { -1, 150, 190, 170, -1, -1, 160, 180 }, ExpectedResult = new int[] { -1, 150, 160, 170, -1, -1, 180, 190 })]
+        [TestCase(new int[] { -1, -1, -1, -1, -1 }, ExpectedResult = new int[] { -1, -1, -1, -1, -1 })]
+        [TestCase(new int[] { -1}, ExpectedResult = new int[] { -1 })]        
+        [TestCase(new int[] { 4, 2, 9, 11, 2, 16 }, ExpectedResult = new int[] { 2, 2, 4, 9, 11, 16 })]
+
+        public int[] TestCodeSignal_SortbyHeight(int[] a)
+        {
+            return _codeSignal.SortbyHeight(a);
+        }
     }
 }

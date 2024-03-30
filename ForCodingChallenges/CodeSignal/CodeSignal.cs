@@ -148,6 +148,25 @@ namespace ForCodingChallenges.CodeSignal
             return false;
         }
 
+        public int[] SortbyHeight(int[] a)
+        {
+            var b = a.Where(x => x != -1).OrderBy(x => x).ToArray();
+            int bindex = 0;
+           
+       
+            for( int i=0; i < a.Length; i++)
+            {
+                if (a[i] != -1 )
+                {
+                    a[i] = b[bindex];
+                    bindex++;
+                }
+            }
+
+            return a;
+        }
+
+
 
     }
 }
